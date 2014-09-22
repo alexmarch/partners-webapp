@@ -28,10 +28,20 @@ var jsFilesToInject = [
 
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/*.js',
+  'js/bower_components/jquery/dist/jquery.min.js',
+  'js/bower_components/bootstrap/dist/js/bootstrap.min.js',
+  'js/bower_components/bootstrap/js/tooltip.js',
+  'js/bower_components/angular/angular.min.js',
+  'js/bower_components/angular-ui-router/release/angular-ui-router.min.js',
+  'js/bower_components/angular-cookies/angular-cookies.min.js',
+  'js/app/app.js',
+  'js/app/services/**/*.js',
+  'js/app/controllers/**/*.js',
+  'js/app/directives/**/*.js'
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
-  'js/**/*.js'
+  //  'js/**/*.js'
 ];
 
 

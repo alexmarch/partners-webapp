@@ -32,9 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
+  '/': 'StaticController.index',
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +43,7 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-
+  '/affiliate/create': 'AuthController.create',
+  '/affiliate/new': 'AuthController.new',
+  '/affiliate/close': 'AuthController.destroy'
 };

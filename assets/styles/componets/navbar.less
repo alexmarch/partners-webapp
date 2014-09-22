@@ -1,0 +1,42 @@
+.navbar {
+  background-color: @pomegranate;
+  .navbar-header {
+    > .navbar-brand {
+      color: #fff;
+    }
+    > .navbar-toggle{
+        &:before{
+          color: #95152B;
+        }
+    }
+  }
+
+  .navbar-nav {
+    >li.active {
+      > a {
+        background: @alizarin;
+      }
+    }
+    > li > a {
+      color: #fff;
+    }
+    > li > a:hover, li > a:focus {
+      color: @sun-flower;
+    }
+    > li > .navbar-btn:first-child {
+      margin-right: 10px;
+    }
+    > li.dropdown{
+      .dropdown-menu{
+        background: @pomegranate;
+        li > a {
+          color: #fff;
+          &:hover, &:focus {
+            background: @alizarin;
+          }
+        }
+      }
+    }
+  }
+}
+

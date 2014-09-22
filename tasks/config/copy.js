@@ -17,12 +17,20 @@ module.exports = function(grunt) {
 
 	grunt.config.set('copy', {
 		dev: {
-			files: [{
-				expand: true,
-				cwd: './assets',
-				src: ['**/*.!(coffee|less)'],
-				dest: '.tmp/public'
-			}]
+			files: [
+        {
+          expand: true,
+          cwd: './assets/js/bower_components/flat-ui/fonts',
+          src: ['*/*.*'],
+          dest: './assets/fonts'
+        },
+        {
+          expand: true,
+          cwd: './assets',
+          src: ['**/*.!(coffee|less)'],
+          dest: '.tmp/public'
+        }
+      ]
 		},
 		build: {
 			files: [{
