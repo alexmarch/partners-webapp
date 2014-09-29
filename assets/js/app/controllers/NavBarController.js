@@ -1,8 +1,16 @@
-function NavBarController($scope, AuthService, $location, $log, $state, $stateParams){
-  $scope.user = AuthService.getUser();
+function NavBarController($scope, authService, $location, $log, $state, $stateParams){
+
+  $scope.user = {};
+
+  var user = authService.getUser();
+
+  user.then(function(user){
+    $scope.user = user;
+  });
+
   this.scope = $scope;
 
-  this.authService = AuthService;
+  this.authService = authService;
   this.location = $location;
   this.log = $log;
   this.scope.logout = angular.bind(this, this.logout);

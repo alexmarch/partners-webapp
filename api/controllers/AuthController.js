@@ -4,7 +4,8 @@
  * @description :: Server-side logic for managing Auths
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt'),
+    crypto = require('crypto');
 
 module.exports = {
 
@@ -15,17 +16,38 @@ module.exports = {
       password: req.param('password'),
       passwordConfirmation: req.param('passwordConfirmation')
     };
+    var code = parseInt(crypto.randomBytes(8).toString('hex'), 16).toString().slice(0, 4);
+
     User.create(user).exec(function (err, user) {
       if (err) {
         return next(err)
       };
-      req.session.user = user.toJSON();
-      return res.json(user.toJSON());
+
+      Tracking.create({code: code, user: user.id}).exec(function(err, tracking){
+        if(err) {
+          return next(err)
+        };
+
+        user.tracking = tracking.id;
+
+        user.save(function(err){
+
+          if(err) return next(err)
+
+          User.findOne(user.id).populate('tracking').exec(function(err, user){
+            if(err) return next(err);
+            console.log(user);
+            req.session.user = user.toJSON();
+            return res.json(user.toJSON());
+          });
+
+        });
+      });
     })
   },
 
   new: function (req, res, next) {
-    User.find({name: req.param('name')}).exec(function (err, user) {
+    User.find({name: req.param('name')}).populate('tracking').exec(function (err, user) {
       if (err) {
         return next(err);
       };
@@ -34,10 +56,9 @@ module.exports = {
           if (err) {
             return next(err)
           };
-          console.log(user[0].password, result);
           if(result){
              req.session.user = user[0].toJSON();
-            return res.json(user[0].toJSON(),200);
+            return res.json(user[0].toJSON());
           }else{
             return res.json({invalidAttributes: {
               password: [
@@ -45,7 +66,6 @@ module.exports = {
               ]
             }}, 400);
           }
-
         })
       } else {
         return res.json({invalidAttributes: {
@@ -56,9 +76,11 @@ module.exports = {
       }
     });
   },
-
+  get: function(req, res){
+    console.log(req.session.user);
+    return res.json(req.session.user,200);
+  },
   destroy: function (req, res) {
-    console.log("session:",req.session.user);
     if (req.session.user) {
       delete req.session.user;
       return res.json({status: "success"}, 200);

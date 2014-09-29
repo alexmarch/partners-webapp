@@ -1,12 +1,22 @@
 'use strict';
 function AuthService($http, $q, $cookieStore) {
   var Auth = {};
+
   Auth.getUser = function () {
-    return $cookieStore.get('user');
+    var user = $http.get('/affiliate/current/user');
+    var deferred = $q.defer();
+    user.success(function (u) {
+      deferred.resolve(u);
+    }).error(function () {
+      deferred.reject();
+    });
+    return deferred.promise;
   };
+
   Auth.setUser = function (user) {
     $cookieStore.put('user', user);
   };
+
   Auth.new = function (user) {
     var deferred = $q.defer(), this_ = this;
     $http.post('/affiliate/new', {name: user.name, password: user.password})
@@ -44,20 +54,17 @@ function AuthService($http, $q, $cookieStore) {
    * @returns {Deferred.promise|*}
    */
   Auth.close = function () {
-    var user = this.getUser(), deferred = $q.defer(), this_ = this;
-    if (user) {
-      $http.post('/affiliate/close')
-          .success(function (status) {
-            this_.setUser(null);
-            deferred.resolve(status);
-          }).error(function (err) {
-            deferred.reject(err);
-          });
-      return deferred.promise;
-    }
-  };
-  return Auth;
+    var deferred = $q.defer(), this_ = this;
+    $http.post('/affiliate/close')
+        .success(function (status) {
+          deferred.resolve(status);
+        }).error(function (err) {
+          deferred.reject(err);
+        });
+    return deferred.promise;
+  }
+return Auth;
 };
 
 angular.module('partnerWebApp')
-    .factory('AuthService', AuthService);
+    .factory('authService', AuthService);

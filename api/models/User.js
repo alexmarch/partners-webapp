@@ -21,7 +21,8 @@ module.exports = {
     email: {
       type: 'email',
       required: true,
-      unique: true
+      unique: true,
+      index: true
     },
     password: {
       type: 'string',
@@ -37,6 +38,13 @@ module.exports = {
       delete user.password;
       delete user.passwordConfirmation;
       return user;
+    },
+    tracking:{
+      model: 'tracking'
+    },
+    campaigns: {
+      collection: 'campaign',
+      via: 'owner'
     }
   },
   beforeCreate: function (user, cb) {
@@ -48,7 +56,7 @@ module.exports = {
           return cb(err);
         }
         user.password = hash;
-        user.passwordConfirmation = null;
+        user.passwordConfirmation = hash;
         return cb();
       });
     });

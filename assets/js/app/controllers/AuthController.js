@@ -1,6 +1,6 @@
-function AuthController($scope, $log, $location, AuthService) {
-  if (AuthService.getUser()) {
-    $location.path('/dashboard/' + AuthService.getUser().id);
+function AuthController($scope, $log, $location, authService, user) {
+  if (angular.isDefined(user.id)) {
+    $location.path('/dashboard/' + user.id);
   };
   this.initForm = {
     name: "",
@@ -11,7 +11,7 @@ function AuthController($scope, $log, $location, AuthService) {
   this.scope = $scope;
   this.scope.form = this.initForm;
   this.scope.errors = {};
-  this.authService = AuthService;
+  this.authService = authService;
   this.log = $log;
   this.location = $location;
   /**
@@ -28,6 +28,7 @@ AuthController.prototype = {
         .then(function (user) {
           if (user) {
             this_.scope.form = this_.initForm;
+            console.log(user);
             this_.location.path('/dashboard/' + user.id);
           }
         })
@@ -43,6 +44,7 @@ AuthController.prototype = {
         .then(function (user) {
           if (user) {
             this_.scope.form = this_.initForm;
+            console.log(user);
             this_.location.path('/dashboard/' + user.id);
           }
         })

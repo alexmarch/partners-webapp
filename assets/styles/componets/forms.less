@@ -1,7 +1,9 @@
+@import "vars";
+
 .form-groups-wrapper {
-  background: @carrot;
+  background: @color-theme-content;
   padding: 0px;
-  box-shadow: inset -3px -3px 0px rgba(0,0,0,0.15);
+//  box-shadow: inset -3px -3px 0px rgba(0,0,0,0.15);
   margin-top: 10px;
   .form-group > label {
     color: #fff;
@@ -20,8 +22,11 @@
     font-size: 20px;
     margin: 0;
     padding: 9px;
-    background: @pumpkin;
+    background: darken(@color-theme-content, 15%);
     box-shadow: inset 0px 0px 7px rgba(0,0,0,0.15);
+    > .btn-small {
+      padding: 2px 8px;
+    }
   }
   form {
     padding: 28px;
@@ -48,14 +53,12 @@
   > .lead {
     color: #fff;
   }
-  color: darken(@carrot, 27%);
+  color: darken(@color-theme-content, 27%);
   padding: 10px;
   img {
    margin: 10px;
   }
 }
-
-
 
 .signup-form {
   .form-group > button {
@@ -63,11 +66,16 @@
   }
   .form-group > input {
     &[type="text"], &[type="email"], &[type="password"] {
-      border: 2px solid @pumpkin;
+      border: 2px solid lighten(@color-theme-content, 15%);
       &:focus{
-        border-color: @sun-flower;
+        border-color: darken(@color-theme-content, 15%);
       }
     }
   }
 
+}
+
+.btn-center{
+  margin: 5px auto;
+  display: block;
 }
