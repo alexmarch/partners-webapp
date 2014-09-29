@@ -55,6 +55,11 @@ module.exports.routes = {
   'get /campaign/list': 'CampaignController.list',
   'put /campaign/update': 'CampaignController.update',
   'get /campaign/edit/:campaignId': 'CampaignController.edit',
-  'delete /campaign/delete/:campaignId': 'CampaignController.delete'
+  'delete /campaign/delete/:campaignId': 'CampaignController.delete',
 
+  /**
+   * Get Partner programs and sites
+   */
+  'get /sites': 'SiteController.list',
+  'get /programs': 'ProgramController.list'
 };

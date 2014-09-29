@@ -185,11 +185,20 @@ var links = {
     },
     "contentView": {
       templateUrl: basePath + 'views/links/add.html',
-      controller: 'CampaignController as campaign',
+      controller: 'LinksController as linkc',
       resolve: {
         isAuthorized: isAuthorized,
         user: function (authService) {
           return authService.getUser();
+        },
+        programs: function(linksService){
+          return linksService.getPrograms();
+        },
+        sites: function(linksService){
+          return linksService.getSites();
+        },
+        campaigns: function(campaignService){
+          return campaignService.list()
         }
       }
     },
@@ -202,6 +211,11 @@ function run($rootScope, $state, $stateParams) {
 }
 
 function config($urlRouterProvider, $stateProvider) {
+//  WebFont.load({
+//    google: {
+//      families: ['Lato']
+//    }
+//  });
   $urlRouterProvider.otherwise('/'); //Otherwise state
   $stateProvider
       .state(home)
@@ -211,6 +225,7 @@ function config($urlRouterProvider, $stateProvider) {
       .state(campaign)
       .state(newCampaign)
       .state(editCampaign)
+      .state(links);
 };
 angular.module('partnerWebApp', ['ui.router', 'ngCookies'])
     .run(run)

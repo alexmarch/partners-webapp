@@ -2,6 +2,8 @@
 
 .navbar {
   background-color: @color-theme;
+  .shadow(0px, 0px, 14px, rgba(0,0,0,0.2));
+
   .navbar-header {
     > .navbar-brand {
       color: #fff;
@@ -14,28 +16,51 @@
   }
 
   .navbar-nav {
+    > li {
+      -webkit-transition: all 200ms linear;
+      -moz-transition: all 200ms linear;
+      -ms-transition: all 200ms linear;
+      -o-transition: all 200ms linear;
+      transition: all 200ms linear;
+    }
     > li.active {
       > a {
-        background: darken(@color-theme,15%);
+//        background: #0081c2;//#f9f9f9;
+//        color: #fff;//#0081c2
+        font-weight: 300;
       }
     }
     > li > a {
-      color: #fff;
+      color: #0F87C6;
+      font-family: @color-theme-font;
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: 14px;
+      -webkit-transition: all 200ms linear;
+      -moz-transition: all 200ms linear;
+      -ms-transition: all 200ms linear;
+      -o-transition: all 200ms linear;
+      transition: all 200ms linear;
+//      width: 120px;
     }
-    > li > a:hover, li > a:focus {
-      color: lighten(@color-theme,40%);
+    > li > a:hover {
+      //color: #0081c2;
+      font-weight: 200;
+//      font-size: 13px;
+      opacity: 0.9;
+      padding-left: 40px;
     }
     > li > .navbar-btn:first-child {
       margin-right: 10px;
     }
     > li.dropdown{
       .dropdown-menu{
-        background: darken(@color-theme, 5%);
-        border: 1px solid lighten(@color-theme, 3%);
+        background: #fff;
+        border: 1px solid #ebebeb;
         li > a {
-          color: #fff;
+          color: #000;
           &:hover, &:focus {
-            background: darken(@color-theme,15%);
+            background: #f2f2f2;
           }
         }
       }

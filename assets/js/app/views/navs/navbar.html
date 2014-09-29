@@ -14,7 +14,7 @@
             <a href ui-sref="statistic"><i class="fa fa-bar-chart"></i> Statistic</a>
           </li>
           <li ng-hide="user" ng-class="{active: $state.includes('about')}">
-            <a href="#">About</a>
+            <a href="#"><i class="fa fa-info"></i> About</a>
           </li>
           <li ng-hide="user" ng-class="{active: $state.includes('promo')}">
             <a href="#"><i class="fa fa-film"></i> Promo</a>
@@ -43,13 +43,13 @@
             <a href ui-sref="help"><span class="fa fa-question"></span> Help</a>
           </li>
           <li ng-hide="user">
-            <button ui-sref="signin" class="btn btn-primary  navbar-btn btn-embossed"><span class="fui-lock"></span> Sign In</button>
+            <button ui-sref="signin" class="btn btn-primary navbar-btn"><span class="fa fa-lock"></span> Sign In</button>
           </li>
           <li ng-hide="user">
-            <button ui-sref="signup" class="btn btn-info  navbar-btn btn-embossed"><span class="fui-new"></span> Sign Up</button>
+            <button ui-sref="signup" class="btn btn-info  navbar-btn"><span class="fa fa-pencil-square"></span> Sign Up</button>
           </li>
           <li ng-show="user">
-            <button class="btn btn-info navbar-btn btn-embossed" ng-click="logout()"><span class="fa fa-sign-out"></span> Logout</button>
+            <button class="btn btn-info navbar-btn" ng-click="logout()"><span class="fa fa-sign-out"></span> Logout</button>
           </li>
         </ul>
       </div>
