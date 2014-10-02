@@ -1,6 +1,6 @@
-function AuthController($scope, $log, $location, authService, user) {
+function AuthController($scope, $log, $location, authService, user, $state) {
   if (angular.isDefined(user.id)) {
-    $location.path('/dashboard/' + user.id);
+    $state.go('dashboard');
   };
   this.initForm = {
     name: "",

@@ -53,6 +53,16 @@
     > li > .navbar-btn:first-child {
       margin-right: 10px;
     }
+    >.dropdown {
+      &:hover > .dropdown-menu {
+         display: block;
+         margin-top: 0px !important;
+         border-top: none;
+         &:hover{
+           display: block;
+         }
+      }
+    }
     > li.dropdown{
       .dropdown-menu{
         background: #fff;

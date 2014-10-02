@@ -37,6 +37,7 @@
   "author": "mas_bk",
   "license": "",
   "devDependencies": {
-    "sails-mysql": "~0.10.6"
+    "sails-mysql": "~0.10.6",
+    "connect-mongo": "~0.4.1"
   }
 }

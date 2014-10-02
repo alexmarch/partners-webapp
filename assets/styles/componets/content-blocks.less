@@ -71,3 +71,31 @@
   }
 }
 
+.animate-container{
+  opacity: 0;
+  -webkit-transition: all 400ms linear;
+  -moz-transition: all 400ms linear;
+  -ms-transition: all 400ms linear;
+  -o-transition: all 400ms linear;
+  transition: all 400ms linear;
+  &.start {
+    opacity: 1;
+  }
+};
+
+.spin-preloader{
+  display: block;
+  padding: 10px;
+  text-align: center;
+  > .fa-spin{
+    margin: 0 auto;
+    display: inline-block;
+    padding: 15px;
+  }
+}
+
+.modal-content {
+  -webkit-box-shadow: 0px 0px 15px rgba(0,0,0,0.2);-moz-box-shadow:  0px 0px 15px rgba(0,0,0,0.2);box-shadow:  0px 0px 15px rgba(0,0,0,0.2);
+}
+
+

@@ -25,8 +25,8 @@ var home = {
   views: {
     "navBarView": { templateUrl: basePath + "views/navs/navbar.html", controller: 'NavBarController as navbarc' },
     "contentView": {
-      templateUrl: basePath + "views/auth/signup.html",
-      controller: 'AuthController as auth',
+      templateUrl: basePath + "views/home/index.html",
+      controller: 'HomeController as home',
       resolve: {
         user: function (authService) {
           return authService.getUser();
@@ -76,7 +76,7 @@ var signIn = {
 
 var dashboardState = {
   name: "dashboard",
-  url: '/dashboard/:id',
+  url: '/dashboard',
   views: {
     "navBarView": {templateUrl: basePath + "views/navs/navbar.html", controller: 'NavBarController as navbarc' },
     "contentView": {
@@ -210,12 +210,13 @@ function run($rootScope, $state, $stateParams) {
   $rootScope.$stateParams = $stateParams;
 }
 
-function config($urlRouterProvider, $stateProvider) {
+function config($urlRouterProvider, $stateProvider, ngClipProvider) {
 //  WebFont.load({
 //    google: {
 //      families: ['Lato']
 //    }
 //  });
+  ngClipProvider.setPath('js/bower_components/zeroclipboard/dist/ZeroClipboard.swf');
   $urlRouterProvider.otherwise('/'); //Otherwise state
   $stateProvider
       .state(home)
@@ -227,7 +228,7 @@ function config($urlRouterProvider, $stateProvider) {
       .state(editCampaign)
       .state(links);
 };
-angular.module('partnerWebApp', ['ui.router', 'ngCookies'])
+angular.module('partnerWebApp', ['ui.router', 'ngCookies', 'ui.bootstrap', 'ngClipboard'])
     .run(run)
     .config(config);
 
