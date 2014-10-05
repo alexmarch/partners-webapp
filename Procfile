@@ -1,1 +1,1 @@
-web: node.js app.js --silent --port=80 --prod
+web: node app.js --silent --port=80 --prod
