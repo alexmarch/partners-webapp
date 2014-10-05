@@ -5,8 +5,34 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 var bcrypt = require('bcrypt'),
-    crypto = require('crypto');
+    crypto = require('crypto'),
+    util = require('util'),
+    Promise = require('bluebird');
 
+function checkUser(name){
+ return new Promise(function(resolve, reject) {
+   User.findByName(name)
+       .exec(function (err, user) {
+         if(err || user.length === 0){
+           resolve(err)
+         }else{
+           reject(user)
+         }
+       });
+ });
+};
+function checkEmail(email){
+  return new Promise(function(resolve, reject) {
+    User.findByEmail(email)
+        .exec(function (err, user) {
+          if(err || user.length === 0){
+            resolve(err)
+          }else{
+            reject(user)
+          }
+        });
+  });
+};
 module.exports = {
 
   create: function (req, res, next) {
@@ -16,34 +42,47 @@ module.exports = {
       password: req.param('password'),
       passwordConfirmation: req.param('passwordConfirmation')
     };
+
     var code = parseInt(crypto.randomBytes(8).toString('hex'), 16).toString().slice(0, 4);
 
-    User.create(user).exec(function (err, user) {
-      if (err) {
-        return next({ "invalidAttributes": err });
-      };
+    checkUser(req.param('name')).then(function(err){
+      checkEmail(req.param('email')).then(function(err){
+        User.create(user).exec(function (err, user) {
+          if (err) {
+            //sails.log.debug(util.inspect(err));
+            return next(err);
+          };
+          Tracking.create({code: code, user: user.id}).exec(function(err, tracking){
+            if(err) {
+              return next(err)
+            };
 
-      Tracking.create({code: code, user: user.id}).exec(function(err, tracking){
-        if(err) {
-          return next(err)
-        };
+            user.tracking = tracking.id;
 
-        user.tracking = tracking.id;
+            user.save(function(err){
 
-        user.save(function(err){
+              if(err) return next(err)
 
-          if(err) return next(err)
+              User.findOne(user.id).populate('tracking').exec(function(err, user){
+                if(err) return next(err);
+                console.log(user);
+                req.session.user = user.toJSON();
+                return res.json(user.toJSON());
+              });
 
-          User.findOne(user.id).populate('tracking').exec(function(err, user){
-            if(err) return next(err);
-            console.log(user);
-            req.session.user = user.toJSON();
-            return res.json(user.toJSON());
+            });
           });
-
-        });
+        })
+      }).catch(function( user ){
+        res.json({invalidAttributes: { email: [
+          { message: 'Email "' + user[0].email +'" exist!' }]
+        }}, 400);
       });
-    })
+    }).catch(function( user ){
+      res.json({invalidAttributes: { name: [
+        { message: 'Login "' + user[0].name +'" exist!' }]
+      }}, 400);
+    });
   },
 
   new: function (req, res, next) {
