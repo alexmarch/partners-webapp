@@ -38,6 +38,7 @@
   "license": "",
   "devDependencies": {
     "sails-mysql": "~0.10.6",
-    "connect-mongo": "~0.4.1"
+    "connect-mongo": "~0.4.1",
+    "sails-mongo": "~0.10.4"
   }
 }
