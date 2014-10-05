@@ -1,5 +1,5 @@
 'use strict';
-function AuthService($http, $q, $cookieStore) {
+function AuthService($http, $q, $cookieStore, $location, $state) {
   var Auth = {};
 
   Auth.getUser = function () {
@@ -62,7 +62,21 @@ function AuthService($http, $q, $cookieStore) {
           deferred.reject(err);
         });
     return deferred.promise;
-  }
+  };
+
+  Auth.isAuthorized = function () {
+    var user = this.getUser();
+    var deferred = $q.defer();
+    var currentUser = user.then(function (u) {
+      if (angular.isUndefined(u.id)) {
+        $state.go('home');
+        deferred.reject();
+      } else {
+        deferred.resolve(currentUser);
+      }
+    });
+    return deferred.promise;
+  };
 return Auth;
 };
 

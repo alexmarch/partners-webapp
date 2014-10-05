@@ -1,0 +1,87 @@
+<div class="container" animate-container>
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="container-fluid form-groups-wrapper">
+        <h1 class="caption"><i class="fa fa-table"></i> Static/Flash banners</h1>
+
+        <div class="content content-inverse">
+          <div class="row">
+              <div class="col-lg-5 col-md-5">
+                <div class="form-group">
+                  <label for="program">Select program:</label>
+                  <select class="form-control" name="program" id="program" ng-model="currentProgramId">
+                    <option ng-repeat="program in programs" value="{{program.programID}}">{{program.name}}</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="program">Select campaign:</label>
+                  <select class="form-control" name="campaign" id="campaign" ng-model="campaignID">
+                    <option ng-repeat="campaign in campaigns.campaigns" value="{{campaign.id}}">{{campaign.name}}
+                    </option>
+                  </select>
+                  <!--<button class="btn btn-primary" ui-sref="new_campaign"><i class="fa fa-plus"></i></button>-->
+              </div>
+            </div>
+            <div class="col-lg-5 col-md-5">
+              <div class="form-group">
+                <label for="program">Select site:</label>
+                <select class="form-control" name="site" id="site" ng-model="domainName" ng-change="changeDomain()">
+                  <option ng-repeat="site in sites" value="{{site.domainName}}" ng-selected="$index == 0">
+                    {{site.domainName}}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <span style="margin-right: 10px">Banners types: </span>
+                <label style="margin-right: 10px">
+                  Static
+                  <input type="radio" value="{{bannerType.static}}" ng-model="currentBannerType"/>
+                </label>&nbsp;
+                <label>
+                  Flash
+                  <input type="radio" value="{{bannerType.flash}}" ng-model="currentBannerType"/>
+                </label>
+              </div>
+              <div class="form-group">
+                <span style="margin-right: 10px">Banners format: </span>
+                <label style="margin-right: 10px">
+                  Horizontal
+                  <input type="radio" value="{{bannerFormat.horizontal}}" ng-model="currentBannerFormat"/>
+                </label>&nbsp;
+                <label>
+                  Vertical
+                  <input type="radio" value="{{bannerFormat.vertical}}" ng-model="currentBannerFormat"/>
+                </label>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div ng-show="bannerType.static == currentBannerType" class="content content-inverse content-text">
+                <span ng-show="bannerFormat.horizontal == currentBannerFormat">
+                  <p>Static banners (horizontal)</p>
+                    <div class="form-group" ng-repeat="banner in banners.static.horizontal">
+                      {{banner.image}} Size: {{banner.width}}x{{banner.height}}
+                      <textarea name="banner" id="banner_{{$index}}" style="width: 100%" rows="4"><a href="http://{{domainName}}?partnerID={{partnerID}}&programID={{currentProgramId}}&campaignID={{campaignID}}"><img src="images/{{banner.image}}" width="{{banner.width}}px" height="{{banner.height}}px" alt=" " /></a></textarea>
+                    </div>
+                </span>
+                <span ng-show="bannerFormat.vertical == currentBannerFormat">
+                  <p>Static banners (vertical)</p>
+                </span>
+              </div>
+              <div ng-show="bannerType.flash == currentBannerType" class="content content-inverse content-text">
+                <span ng-show="bannerFormat.horizontal == currentBannerFormat">
+                  <p>Flash banners (horizontal)</p>
+                </span>
+                <span ng-show="bannerFormat.vertical == currentBannerFormat">
+                  <p>Flash banners (vertical)</p>
+                </span>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

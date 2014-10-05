@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12 col-md-12">
       <div class="container-fluid form-groups-wrapper">
-        <h1 class="caption"><i class="fa fa-table"></i> Links generator</h1>
+        <h1 class="caption"><i class="fa fa-table"></i> PopUp</h1>
 
         <div class="content content-inverse">
           <div class="row">
@@ -48,10 +48,10 @@
               </div>
               <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label for="program">Select campaign:</label>
-                      <select class="form-control" name="campaign" id="campaign" ng-model="campaignID">
-                        <option ng-repeat="campaign in campaigns.campaigns" value="{{campaign.id}}">{{campaign.name}}</option>
-                      </select>
+                  <label for="program">Select campaign:</label>
+                  <select class="form-control" name="campaign" id="campaign" ng-model="campaignID">
+                    <option ng-repeat="campaign in campaigns.campaigns" value="{{campaign.id}}">{{campaign.name}}</option>
+                  </select>
                 </div>
                 <div class="form-group radio-group">
                   <label>Open link:</label>
@@ -62,17 +62,6 @@
                   <label>
                     <input type="radio" value="_blank" ng-model="target"/>
                     New window
-                  </label>
-                </div>
-                <div class="form-group radio-group">
-                  <label>Attribute (onmouseover):</label>
-                  <label>
-                    Yes
-                    <input type="radio" value="1" ng-model="mouseOverState"/>
-                  </label>
-                  <label>
-                    No
-                    <input type="radio" value="0" ng-model="mouseOverState"/>
                   </label>
                 </div>
               </div>

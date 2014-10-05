@@ -197,14 +197,21 @@ var links = {
         sites: function(linksService){
           return linksService.getSites();
         },
-        campaigns: function(campaignService){
-          return campaignService.list()
+        campaigns: function(campaignService, $state){
+          var campaignsList = campaignService.list();
+          campaignsList.then(function(campaigns){
+            if(campaigns.campaigns.length === 0){
+              $state.go('campaign');
+            }
+          });
+          return campaignsList;
         }
       }
     },
     "footerView": {templateUrl: basePath + "views/footer/footer.html"}
   }
-}
+};
+
 function run($rootScope, $state, $stateParams) {
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;

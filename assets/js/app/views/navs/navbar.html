@@ -23,10 +23,10 @@
             <a href class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-film"></i> Promo <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Popunder</a></li>
-                <li><a href="#">PopUp</a></li>
+                <!--<li><a href="#">Popunder</a></li>-->
+                <li><a ui-sref="popup">PopUp</a></li>
                 <li><a ui-sref="links">Links</a></li>
-                <li><a href="#">Banners</a></li>
+                <li><a ui-sref="banners_list">Banners</a></li>
               </ul>
           </li>
           <li ng-show="user" ng-class="{active: $state.includes('profile')}" class="dropdown">
@@ -42,14 +42,14 @@
           <li ng-class="{active: $state.includes('help')}">
             <a href ui-sref="help"><span class="fa fa-question"></span> Help</a>
           </li>
-          <li ng-hide="user">
+          <li ng-hide="!user">
+            <button class="btn btn-info navbar-btn" ng-click="logout()"><span class="fa fa-sign-out"></span> Logout</button>
+          </li>
+          <li ng-show="!user">
             <button ui-sref="signin" class="btn btn-primary navbar-btn"><span class="fa fa-lock"></span> Sign In</button>
           </li>
-          <li ng-hide="user">
-            <button ui-sref="signup" class="btn btn-info  navbar-btn"><span class="fa fa-pencil-square"></span> Sign Up</button>
-          </li>
-          <li ng-show="user">
-            <button class="btn btn-info navbar-btn" ng-click="logout()"><span class="fa fa-sign-out"></span> Logout</button>
+          <li ng-show="!user">
+            <button ui-sref="signup" class="btn btn-info  navbar-btn"><span class="fa fa-pencil"></span> Sign Up</button>
           </li>
         </ul>
       </div>

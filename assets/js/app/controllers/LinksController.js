@@ -1,4 +1,4 @@
-function LinksController($scope, programs, sites, campaigns, user, $modal, $sce){
+function LinksController($scope, programs, sites, campaigns, user, $modal, $sce, $state){
   $scope.sites = sites;
   $scope.programs = programs;
   $scope.campaigns = campaigns;
