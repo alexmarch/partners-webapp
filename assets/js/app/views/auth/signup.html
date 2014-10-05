@@ -1,0 +1,71 @@
+<div class="container" animate-container>
+  <div class="row">
+    <div class="col-lg-8 col-md-8">
+      <div class="container-fluid form-groups-wrapper">
+        <h1 class="caption">Affiliate</h1>
+
+        <div class="signup-text">
+          <!--<img src="images/partners/running.png" alt="" align="left"/>-->
+
+          <p class="lead">
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+          </p>
+
+          <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            <strong>Donec ullamcorper</strong> nulla non metus auctor fringilla. Duis mollis, est non commodo
+            luctus,
+            nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+          </p>
+      </div>
+    </div>
+      <div class="container-fluid form-groups-wrapper">
+        <h1 class="caption">News</h1>
+        <div class="signup-text">
+          <!--<img src="images/partners/locked.png" alt="" align="left"/>-->
+          <p class="lead">
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+          </p>
+
+          <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            <strong>Donec ullamcorper</strong> nulla non metus auctor fringilla. Duis mollis, est non commodo
+            luctus,
+            nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+          </p>
+        </div>
+      </div>
+  </div>
+  <div class="col-lg-4 col-md-4">
+    <div class="container-fluid form-groups-wrapper">
+      <h1 class="caption">Register Affiliate</h1>
+      <form action="" role="form" class="form-horizontal signup-form" ng-submit="signup()" novalidate>
+        <!--<img src="images/partners/locked.png" alt="" align="left">-->
+        <div ng-class="{'has-error': errors.name}" class="form-group">
+          <label for="login">Name (login):</label>
+          <input ng-input-validator error-message="errors.name" error-placement="left" id="login" name="login" type="text" ng-model="form.name" ng-focus="errors.name=null" ng-click="errors.name=null" class="form-control"/>
+        </div>
+        <div ng-class="{'has-error': errors.password}" class="form-group">
+          <label for="password">Password:</label>
+          <input ng-input-validator error-message="errors.password" error-placement="left" id="password" name="password" type="password" ng-model="form.password" ng-focus="errors.password=null" ng-click="errors.password=null" class="form-control"/>
+        </div>
+        <div ng-class="{'has-error': errors.passwordConfirmation}" class="form-group">
+          <label for="passwordConfirmation">Confirm password:</label>
+          <input ng-input-validator error-message="errors.passwordConfirmation" error-placement="left" id="passwordConfirmation" name="passwordConfirmation" type="password" ng-model="form.passwordConfirmation"
+                 class="form-control" ng-focus="errors.passwordConfirmation=null" ng-click="errors.passwordConfirmation=null"/>
+        </div>
+        <div ng-class="{'has-error': errors.email}" class="form-group">
+          <label for="email">Email:</label>
+          <input id="email" ng-input-validator error-message="errors.email" error-placement="left" name="email" type="email" ng-model="form.email" ng-focus="errors.email=null" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox"/> <a ui-sref="terms">Terms & Conditions</a>
+          </label>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-block btn-info"><span class="fa fa-pencil-square"></span> Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

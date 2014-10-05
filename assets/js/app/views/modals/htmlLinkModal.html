@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h3 class="modal-title">Html link</h3>
+</div>
+<div class="modal-body">
+  <div class="control-group">
+    <input type="text" class="form-control" ng-model="linkTag"/>
+    <label for="linkText">Url text:</label>
+    <input id="linkText" type="text" class="form-control" ng-model="linkText" ng-change="updateLink(linkText)"/>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-info" clip-copy="linkTag" clip-click="endClipCopy()">Copy to clipboard and close</button>
+  <button class="btn btn-info" ng-click="cancel()">Cancel</button>
+</div>

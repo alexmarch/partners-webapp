@@ -1,0 +1,110 @@
+@import "vars";
+
+.form-groups-wrapper {
+  background: #fff;
+  padding: 0px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.05);
+  border: 1px solid #eaeaea;
+  margin-top: 10px;
+  font-family: @color-theme-font;
+  font-weight: 300;
+  strong {
+    font-weight: 400;
+  }
+  .form-group > label {
+    color: #c9c9c9;
+  }
+  .form-group{
+    &.has-error{
+      input{
+        &[type="text"], &[type="password"], &[type="email"]{
+          border: 1px solid #B23030;
+        }
+      }
+    }
+  }
+  > h1.caption {
+    color: #aeaeae;
+    font-size: 17px;
+    margin: 0;
+    padding: 9px;
+    background: #fcfcfc;
+//    opacity: 0.9;
+//    box-shadow: inset 0px 0px 7px rgba(0,0,0,0.15);
+    font-family: @color-theme-font;
+    font-weight: 400;
+    > .btn-small {
+      padding: 2px 8px;
+    }
+  }
+  form {
+    padding: 28px;
+    padding-top: 0px;
+    > img {
+      margin: 0 auto;
+      margin-top: 5px;
+      display: block;
+      float: none;
+    }
+    a {
+      color: #0F87C6;
+      cursor: pointer;
+    }
+    > p {
+      font-family: @color-theme-font;
+      font-weight: 300;
+
+    }
+  }
+  .bg-danger{
+    background: @pomegranate;
+  }
+  .text-error{
+   color: @orange;
+  }
+}
+.signup-text {
+  > .lead {
+    color: #686868;
+  }
+  color: darken(@color-theme-content, 27%);
+  padding: 10px;
+  img {
+   margin: 10px;
+  }
+}
+
+.form-group {
+  select {
+    &.form-control{
+      border: 1px solid #ccc;
+    }
+  }
+}
+.signup-form {
+  .form-group > button {
+    outline: none;
+  }
+}
+.form-group > input {
+  &[type="text"], &[type="email"], &[type="password"], select {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    &:focus{
+      border-color: darken(#ccc, 15%);
+    }
+  }
+}
+.radio-group{
+  label{
+    color: #404040 !important;
+    font-weight: 200;
+    padding-left: 5px;
+  }
+}
+.btn-center{
+  margin: 5px auto;
+  display: block;
+}

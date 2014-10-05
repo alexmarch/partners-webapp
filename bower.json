@@ -1,0 +1,33 @@
+{
+  "name": "partners-webapp",
+  "version": "0.0.0",
+  "authors": [
+    "XXX"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "/assets/js/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.2.25",
+    "angular": "~1.2.25",
+    "angular-ui": "~0.4.0",
+    "angular-ui-router": "~0.2.11",
+    "flatui": "*",
+    "angular-cookies": "~1.2.25",
+    "bootstrap": "~3.2.0",
+    "flat-ui": "~2.2.0",
+    "jquery": "~2.1.1",
+    "fontawesome": "~4.2.0",
+    "angular-bootstrap": "~0.11.2",
+    "angular-zeroclipboard": "~0.2.2",
+    "zeroclipboard": "~2.1.6",
+    "ng-clip": "~0.2.4",
+    "angular-animate": "~1.2.25"
+  }
+}

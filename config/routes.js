@@ -32,9 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
+  '/': 'StaticController.index',
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +43,23 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+  '/affiliate/create': 'AuthController.create',
+  '/affiliate/new': 'AuthController.new',
+  '/affiliate/close': 'AuthController.destroy',
+  '/affiliate/current/user': 'AuthController.get',
 
+  /**
+   * Campaigns routes
+   */
+  'post /campaign/new': 'CampaignController.create',
+  'get /campaign/list': 'CampaignController.list',
+  'put /campaign/update': 'CampaignController.update',
+  'get /campaign/edit/:campaignId': 'CampaignController.edit',
+  'delete /campaign/delete/:campaignId': 'CampaignController.delete',
+
+  /**
+   * Get Partner programs and sites
+   */
+  'get /sites': 'SiteController.list',
+  'get /programs': 'ProgramController.list'
 };

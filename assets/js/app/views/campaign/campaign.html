@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <form action="">
+        <div class="container-fluid form-groups-wrapper">
+          <h1 class="caption">
+            <span class="fa fa-table"></span> Campaigns
+            <button ui-sref="new_campaign" class="btn btn-primary pull-right btn-small"><i class="fa fa-plus"></i></button>
+          </h1>
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="content content-inverse content-text">
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th><span class="fui-list-columned"></span> Campaign ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th><span class="fui-calendar"></span> Creation date</th>
+                    <th><span class="fui-gear"></span> Action</th>
+                  </tr>
+                  </thead>
+                  <tbody ng-repeat="campaign in campaigns.campaigns">
+                    <tr>
+                      <td>{{campaign.id}}</td>
+                      <td>{{campaign.name}}</td>
+                      <td>{{campaign.description}}</td>
+                      <td>{{campaign.createdAt | date:'dd/MM/yyyy'}}</td>
+                      <td>
+                        <div class="form-group">
+                          <button class="btn btn-danger" ng-click="delete(campaign.id)">Delete</button>
+                          <a href="#/campaign/edit/{{campaign.id}}" class="btn btn-primary" ng-click="edit(campaign.id)">Edit</a>
+                        </div>
+
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div ng-show="!campaigns.campaigns.length" class="informer bg-warning text-center text-warning offset-auto">
+                <span class="fui-info-circle"></span> You don't have any <strong>campaigns</strong>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <button ui-sref="new_campaign" class="btn btn-primary btn-center btn-huge"><i class="fa fa-plus"></i> Create new campaign</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
