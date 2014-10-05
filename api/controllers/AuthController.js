@@ -20,7 +20,7 @@ module.exports = {
 
     User.create(user).exec(function (err, user) {
       if (err) {
-        return next(err)
+        return next({ "invalidAttributes": err });
       };
 
       Tracking.create({code: code, user: user.id}).exec(function(err, tracking){
