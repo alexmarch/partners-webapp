@@ -23,15 +23,11 @@
     "rc": "~0.5.0",
     "sails": "~0.10.4",
     "sails-disk": "~0.10.0",
-    "sails-mysql": "~0.10.6",
-    "connect-mongo": "~0.4.1",
-    "sails-mongo": "~0.10.4",
-    "bower": "~1.3.12"
+    "sails-mysql": "~0.10.6"
   },
   "scripts": {
     "start": "node app.js",
-    "debug": "node debug app.js",
-    "postinstall" : "bower install"
+    "debug": "node debug app.js"
   },
   "main": "app.js",
   "repository": {
@@ -41,6 +37,8 @@
   "author": "mas_bk",
   "license": "",
   "devDependencies": {
-    "sails-mysql": "~0.10.6"
+    "sails-mysql": "~0.10.6",
+    "connect-mongo": "~0.4.1",
+    "sails-mongo": "~0.10.4"
   }
 }

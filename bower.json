@@ -25,13 +25,9 @@
     "jquery": "~2.1.1",
     "fontawesome": "~4.2.0",
     "angular-bootstrap": "~0.11.2",
-    "angular-zeroclipboard": ">=0.2.2",
-    "zeroclipboard": "=2.1.6",
+    "angular-zeroclipboard": "~0.2.2",
+    "zeroclipboard": "~2.1.6",
     "ng-clip": "~0.2.4",
     "angular-animate": "~1.2.25"
-  },
-  "resolutions":
-  {
-    "zeroclipboard": "2.1.6"
   }
 }
