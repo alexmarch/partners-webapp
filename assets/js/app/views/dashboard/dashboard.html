@@ -9,8 +9,11 @@
               <p>Welcome: <span>{{user.name}}</span></p>
               <p>Tracking code: <span>{{user.tracking.code}}</span></p>
             </div>
-            <!--<div class="content content-inverse content-text">-->
-            <!--</div>-->
+            <div ng-show="!campaigns.length" class="content content-inverse content-text">
+              <p class="notify">Notify: <span>{{user.name}}</span></p>
+              <span style="text-align: center; display: inherit"><span class="fui-info-circle"></span> You don't have any <strong>campaigns</strong></span>
+              <button ui-sref="new_campaign" class="btn btn-primary btn-center btn-huge"><i class="fa fa-plus"></i> Create new campaign</button>
+            </div>
           </div>
           <div class="col-md-8 col-lg-8">
             <div class="content content-inverse content-text">

@@ -74,24 +74,7 @@ var signIn = {
   }
 };
 
-var dashboardState = {
-  name: "dashboard",
-  url: '/dashboard',
-  views: {
-    "navBarView": {templateUrl: basePath + "views/navs/navbar.html", controller: 'NavBarController as navbarc' },
-    "contentView": {
-      templateUrl: basePath + 'views/dashboard/dashboard.html',
-      controller: 'DashboardController',
-      resolve: {
-        isAuthorized: isAuthorized,
-        user: function (authService) {
-          return authService.getUser();
-        }
-      }
-    },
-    "footerView": {templateUrl: basePath + "views/footer/footer.html"}
-  }
-};
+
 
 var campaign = {
   name: "campaign",
@@ -229,7 +212,6 @@ function config($urlRouterProvider, $stateProvider, ngClipProvider) {
       .state(home)
       .state(signUp)
       .state(signIn)
-      .state(dashboardState)
       .state(campaign)
       .state(newCampaign)
       .state(editCampaign)

@@ -16,7 +16,7 @@ function checkUser(name){
          if(err || user.length === 0){
            resolve(err)
          }else{
-           reject(user)
+           reject(user[0])
          }
        });
  });
@@ -26,9 +26,10 @@ function checkEmail(email){
     User.findByEmail(email)
         .exec(function (err, user) {
           if(err || user.length === 0){
+            console.log("Email find",email);
             resolve(err)
           }else{
-            reject(user)
+            reject(user[0]);
           }
         });
   });
@@ -46,16 +47,16 @@ module.exports = {
     var code = parseInt(crypto.randomBytes(8).toString('hex'), 16).toString().slice(0, 4);
 
     checkUser(req.param('name')).then(function(err){
+
       checkEmail(req.param('email')).then(function(err){
+
         User.create(user).exec(function (err, user) {
-          if (err) {
-            //sails.log.debug(util.inspect(err));
-            return next(err);
-          };
+
+          if (err) return next(err);
+
           Tracking.create({code: code, user: user.id}).exec(function(err, tracking){
-            if(err) {
-              return next(err)
-            };
+
+            if(err) return next(err);
 
             user.tracking = tracking.id;
 
@@ -69,18 +70,17 @@ module.exports = {
                 req.session.user = user.toJSON();
                 return res.json(user.toJSON());
               });
-
             });
           });
-        })
-      }).catch(function( user ){
+        });
+      }).catch(function( result ){
         res.json({invalidAttributes: { email: [
-          { message: 'Email "' + user[0].email +'" exist!' }]
+          { message: result.hasOwnProperty('email')  ? 'Email "' + result.email + '" exist!' : 'Invalid email format !' }]
         }}, 400);
       });
-    }).catch(function( user ){
+    }).catch(function( result ){
       res.json({invalidAttributes: { name: [
-        { message: 'Login "' + user[0].name +'" exist!' }]
+        { message: result.hasOwnProperty('name') ? 'Login "' + result.name +'" exist!' : 'Invalid login format !' }]
       }}, 400);
     });
   },

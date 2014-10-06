@@ -41,20 +41,20 @@
         <!--<img src="images/partners/locked.png" alt="" align="left">-->
         <div ng-class="{'has-error': errors.name}" class="form-group">
           <label for="login">Name (login):</label>
-          <input ng-input-validator error-message="errors.name" error-placement="left" id="login" name="login" type="text" ng-model="form.name" ng-focus="errors.name=null" ng-click="errors.name=null" class="form-control"/>
+          <input ng-input-validator error-message="errors.name" error-placement="left" id="login" name="login" type="text" ng-model="form.name" ng-focus="errors.name=null" ng-click="errors.name=null" class="form-control" ng-disabled="preload"/>
         </div>
         <div ng-class="{'has-error': errors.password}" class="form-group">
           <label for="password">Password:</label>
-          <input ng-input-validator error-message="errors.password" error-placement="left" id="password" name="password" type="password" ng-model="form.password" ng-focus="errors.password=null" ng-click="errors.password=null" class="form-control"/>
+          <input ng-input-validator error-message="errors.password" error-placement="left" id="password" name="password" type="password" ng-model="form.password" ng-focus="errors.password=null" ng-click="errors.password=null" class="form-control" ng-disabled="preload"/>
         </div>
         <div ng-class="{'has-error': errors.passwordConfirmation}" class="form-group">
           <label for="passwordConfirmation">Confirm password:</label>
           <input ng-input-validator error-message="errors.passwordConfirmation" error-placement="left" id="passwordConfirmation" name="passwordConfirmation" type="password" ng-model="form.passwordConfirmation"
-                 class="form-control" ng-focus="errors.passwordConfirmation=null" ng-click="errors.passwordConfirmation=null"/>
+                 class="form-control" ng-focus="errors.passwordConfirmation=null" ng-click="errors.passwordConfirmation=null" ng-disabled="preload"/>
         </div>
         <div ng-class="{'has-error': errors.email}" class="form-group">
           <label for="email">Email:</label>
-          <input id="email" ng-input-validator error-message="errors.email" error-placement="left" name="email" type="email" ng-model="form.email" ng-focus="errors.email=null" class="form-control"/>
+          <input id="email" ng-input-validator error-message="errors.email" error-placement="left" name="email" type="email" ng-model="form.email" ng-focus="errors.email=null" class="form-control" ng-disabled="preload"/>
         </div>
         <div class="form-group">
           <label>
@@ -62,7 +62,7 @@
           </label>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-block btn-info"><span class="fa fa-pencil"></span> Sign Up</button>
+          <button type="submit" class="btn btn-block btn-info" ng-disabled="preload"><span ng-class="{'fa fa-refresh fa-spin': preload,'fa fa-pencil': preload === false}"></span> {{ !preload ? 'Sign Up' : '' }}</button>
         </div>
       </form>
     </div>
