@@ -37,6 +37,7 @@
   <div class="col-lg-4 col-md-4">
     <div class="container-fluid form-groups-wrapper">
       <h1 class="caption">Register Affiliate</h1>
+      <div class="messages success" ng-show="messages">{{messages}}</div>
       <form action="" role="form" class="form-horizontal signup-form" ng-submit="signup()" novalidate>
         <!--<img src="images/partners/locked.png" alt="" align="left">-->
         <div ng-class="{'has-error': errors.name}" class="form-group">

@@ -11,7 +11,7 @@ function AuthController($scope, $log, $location, authService, user, $state) {
 
   this.scope = $scope;
   this.scope.preload = false;
-  this.scope.form = this.initForm;
+  //this.scope.form = this.initForm;
   this.scope.errors = {};
   this.authService = authService;
   this.log = $log;
@@ -39,11 +39,11 @@ AuthController.prototype = {
       return;
     }
     this.authService.create(this.scope.form)
-        .then(function (user) {
-          if (user) {
+        .then(function (res) {
+          if (res.message) {
             this_.scope.preload = false;
             this_.scope.form = this_.initForm;
-            this_.location.path('/dashboard/' + user.id);
+            this_.scope.messages = res.message;
           }
         })
         .catch(function (err) {
@@ -57,11 +57,13 @@ AuthController.prototype = {
     var this_ = this;
     this.scope.preload = true;
     this.authService.new(this.scope.form)
-        .then(function (user) {
-          if (user) {
+        .then(function (res) {
+          if (res.user) {
             this_.scope.preload = false;
             this_.scope.form = this_.initForm;
-            this_.location.path('/dashboard/' + user.id);
+            this_.location.path('/dashboard/' + res.user.id);
+          }else if(res.message){
+            this_scope.messages = res.message
           }
         })
         .catch(function (err) {
@@ -70,6 +72,8 @@ AuthController.prototype = {
             this_.scope.errors = err.invalidAttributes;
           } else if (err.hasOwnProperty('message')) {
             this_.scope.errorMessage = err.message;
+            console.log(this_.initForm);
+            this_.scope.form = angular.copy(this_.initForm);
           }
         });
   },

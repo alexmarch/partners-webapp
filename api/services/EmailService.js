@@ -1,12 +1,13 @@
 var fs, mailer, path;
 
-mailer = require('nodemailer');
+nodemailer = require('nodemailer');
 
 fs = require('fs');
 
 path = require('path');
 
 module.exports = {
+
   confirmEmail: function(opts,emailOpts) {
 
     var cTpl, tpl, transporter, fullPath;
@@ -18,13 +19,15 @@ module.exports = {
     // compile template
     cTpl = this.compile(tpl, opts);
 
-    transporter nodemailer.createTransport({
+    transporter = nodemailer.createTransport({
           service: 'Gmail',
           auth: {
             user: 'maappdev@gmail.com',
-            pass: proccess.env.EMAIL_SERVICE_PASS || ''
+            pass: process.env.EMAIL_SERVICE_PASS || ''
           }
     });
+
+    console.log(cTpl);
 
     var mailOptions = {
       from: emailOpts.from, // sender address
@@ -45,7 +48,7 @@ module.exports = {
     var k, v;
     for (k in obj) {
       v = obj[k];
-      tpl = tpl.replace("{{" + k + "}}", v, "ig");
+      tpl = tpl.replace(new RegExp("{{" + k + "}}", "g"), v);
     }
     return tpl;
   }

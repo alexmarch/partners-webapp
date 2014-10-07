@@ -43,6 +43,8 @@ module.exports = {
       passwordConfirmation: req.param('passwordConfirmation')
     };
 
+    var token;
+
     var code = parseInt(crypto.randomBytes(8).toString('hex'), 16).toString().slice(0, 4);
 
     checkUser(req.param('name')).then(function(err){
@@ -52,6 +54,25 @@ module.exports = {
         User.create(user).exec(function (err, user) {
 
           if (err) return next(err);
+          /**
+           * Send confirmation email
+           */
+          token = crypto.randomBytes(32).toString('base64').replace('\/','','ig');
+
+          user.emailConfirmationToken = token;
+          user.confirmationTokenExpireDate = new Date((new Date).setDate((new Date()).getDate() - 2));
+
+          EmailService.confirmEmail({
+            username: user.name,
+            domain: process.env.DOMAIN || 'localhost',
+            token: token,
+            back_email: process.env.BACK_EMAIL || '',
+            support_link: process.env.SUPPORT_LINK || 'support@'+process.env.DOMAIN
+          },{
+            to: user.email,
+            from: 'Affiliate service <noreply@email.com>',
+            subject: 'Email confirmation'
+          });
 
           Tracking.create({code: code, user: user.id}).exec(function(err, tracking){
 
@@ -63,11 +84,14 @@ module.exports = {
 
               if(err) return next(err)
 
-              User.findOne(user.id).populate('tracking').exec(function(err, user){
-                if(err) return next(err);
-                req.session.user = user.toJSON();
-                return res.json(user.toJSON());
+              res.json({
+                message: "You have been successfully registered please confirm your email: " + user.email
               });
+              //User.findOne(user.id).populate('tracking').exec(function(err, user){
+              //  if(err) return next(err);
+              //  req.session.user = user.toJSON();
+              //  return res.json(user.toJSON());
+              //});
             });
           });
         });
@@ -89,13 +113,20 @@ module.exports = {
         return next(err);
       };
       if (user.length > 0) {
+
+        //Check if user not confirmed yet
+
+        if(user[0].emailConfirmationToken){
+          return res.json({message: "Email address not confirmed !" }, 400);
+        };
+
         bcrypt.compare(req.param('password'), user[0].password, function (err, result) {
           if (err) {
             return next(err)
           };
           if(result){
              req.session.user = user[0].toJSON();
-            return res.json(user[0].toJSON());
+            return res.json({user: user[0].toJSON() });
           }else{
             return res.json({invalidAttributes: {
               password: [
@@ -113,9 +144,24 @@ module.exports = {
       }
     });
   },
+
   get: function(req, res){
     return res.json(req.session.user,200);
   },
+
+  confirmEmail: function(req,res){
+    User.find({emailConfirmationToken: req.param('token')}).exec(function(err, user){
+      if(err || user.length === 0){
+        return res.redirect('/#signup');
+      };
+      user[0].emailConfirmationToken = undefined;
+      user[0].save(function(err){
+        if(err) return sails.log.error(err);
+        res.redirect('/#signin');
+      });
+    });
+  },
+
   destroy: function (req, res) {
     if (req.session.user) {
       delete req.session.user;

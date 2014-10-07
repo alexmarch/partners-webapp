@@ -13,6 +13,7 @@ function NavBarController($scope, authService, $location, $log, $state, $statePa
   this.authService = authService;
   this.location = $location;
   this.log = $log;
+  this.$state = $state;
   this.scope.logout = angular.bind(this, this.logout);
 };
 
@@ -21,7 +22,7 @@ NavBarController.prototype = {
     var this_ = this;
     this.authService.close()
         .then(function(){
-          this_.location.path('/');
+          this_.$state.go('signin');
         }).catch(function(err){
           this_.log.error(err);
         });

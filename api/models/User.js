@@ -48,10 +48,10 @@ module.exports = {
     /**
      * Email confirmation
      */
-    emailToken: {
+    emailConfirmationToken: {
       type: 'string'
     },
-    tokenExpireDate:{
+    confirmationTokenExpireDate:{
       type: 'date'
     }
   },

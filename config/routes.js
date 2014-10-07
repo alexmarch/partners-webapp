@@ -61,5 +61,10 @@ module.exports.routes = {
    * Get Partner programs and sites
    */
   'get /sites': 'SiteController.list',
-  'get /programs': 'ProgramController.list'
+  'get /programs': 'ProgramController.list',
+
+  /**
+   * Confirm email
+   */
+  'get /confirm/email/:token': 'AuthController.confirmEmail'
 };
