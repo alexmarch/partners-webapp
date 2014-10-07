@@ -44,6 +44,15 @@ module.exports = {
     campaigns: {
       collection: 'campaign',
       via: 'owner'
+    },
+    /**
+     * Email confirmation
+     */
+    emailToken: {
+      type: 'string'
+    },
+    tokenExpireDate:{
+      type: 'date'
     }
   },
   beforeCreate: function (user, cb) {
