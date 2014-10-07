@@ -26,7 +26,6 @@ function checkEmail(email){
     User.findByEmail(email)
         .exec(function (err, user) {
           if(err || user.length === 0){
-            console.log("Email find",email);
             resolve(err)
           }else{
             reject(user[0]);
@@ -66,7 +65,6 @@ module.exports = {
 
               User.findOne(user.id).populate('tracking').exec(function(err, user){
                 if(err) return next(err);
-                console.log(user);
                 req.session.user = user.toJSON();
                 return res.json(user.toJSON());
               });
@@ -116,7 +114,6 @@ module.exports = {
     });
   },
   get: function(req, res){
-    console.log(req.session.user);
     return res.json(req.session.user,200);
   },
   destroy: function (req, res) {

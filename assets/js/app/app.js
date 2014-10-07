@@ -194,7 +194,26 @@ var links = {
     "footerView": {templateUrl: basePath + "views/footer/footer.html"}
   }
 };
-
+var terms = {
+  name: "terms",
+  url: "/terms",
+  views: {
+    "navBarView": {
+      templateUrl: basePath + "views/navs/navbar.html",
+      controller: 'NavBarController as navbarc'
+    },
+    "contentView": {
+      templateUrl: basePath + "views/terms.html",
+      controller: 'AuthController as auth',
+      resolve: {
+        user: function (authService) {
+          return authService.getUser();
+        }
+      }
+    },
+    "footerView": {templateUrl: basePath + "views/footer/footer.html"}
+  }
+}
 function run($rootScope, $state, $stateParams) {
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
@@ -215,7 +234,8 @@ function config($urlRouterProvider, $stateProvider, ngClipProvider) {
       .state(campaign)
       .state(newCampaign)
       .state(editCampaign)
-      .state(links);
+      .state(links)
+      .state(terms);
 };
 angular.module('partnerWebApp', ['ui.router', 'ngCookies', 'ui.bootstrap', 'ngClipboard'])
     .run(run)
