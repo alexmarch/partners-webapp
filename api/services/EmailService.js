@@ -27,8 +27,6 @@ module.exports = {
           }
     });
 
-    console.log(cTpl);
-
     var mailOptions = {
       from: emailOpts.from, // sender address
       to: emailOpts.to, // list of receivers
