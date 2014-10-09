@@ -1,3 +1,5 @@
+var basePath = 'js/app/';
+
 function DashboardController ($scope, $state, $stateParams, campaigns, user, authService){
   $scope.user = user;
   $scope.campaigns = campaigns.campaigns;
@@ -26,9 +28,9 @@ DashboardController.state = {
       templateUrl: basePath + 'views/dashboard/dashboard.html',
       controller: 'DashboardController as dashboard',
       resolve: DashboardController.resolve
-      }
-    },
+      },
     "footerView": {templateUrl: basePath + "views/footer/footer.html"}
+    }
 };
 
 function config($stateProvider){

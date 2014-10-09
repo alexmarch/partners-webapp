@@ -2,7 +2,6 @@ html {
   display: block;
 }
 body{
-  padding-top: 56px;
   margin: 0;
   display: block;
   font-weight: 400;
@@ -23,5 +22,27 @@ body{
 }
 .main-content{
 //  margin:0 auto -20px;
+  padding-top: 55px;
+  &.bg-image {
+    background-image: url("/images/partners/background-image.jpg");
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+  }
 }
 
+.socials{
+  color: #111;
+  font-size: 20px;
+  i{
+    padding: 5px;
+    cursor: pointer;
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+}
