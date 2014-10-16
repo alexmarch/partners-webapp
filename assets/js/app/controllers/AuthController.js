@@ -2,6 +2,7 @@ function AuthController($scope, $log, $location, authService, user, $state) {
   if (angular.isDefined(user.id)) {
     $state.go('dashboard');
   };
+
   this.initForm = {
     name: "",
     password: "",
@@ -11,7 +12,6 @@ function AuthController($scope, $log, $location, authService, user, $state) {
 
   this.scope = $scope;
   this.scope.preload = false;
-  //this.scope.form = this.initForm;
   this.scope.errors = {};
   this.authService = authService;
   this.log = $log;
