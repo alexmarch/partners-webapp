@@ -219,12 +219,20 @@ function run($rootScope, $state, $stateParams) {
   $rootScope.$stateParams = $stateParams;
 }
 
-function config($urlRouterProvider, $stateProvider, ngClipProvider) {
-//  WebFont.load({
-//    google: {
-//      families: ['Lato']
-//    }
-//  });
+function config($urlRouterProvider, $stateProvider, ngClipProvider, $i18nextProvider) {
+ WebFont.load({
+   google: {
+     families: ['Lato']
+   }
+ });
+ $i18nextProvider.options = {
+    lng: 'en',
+    useCookie: false,
+    useLocalStorage: false,
+    fallbackLng: 'en',
+    resGetPath: '/js/app/locales/__lng__/__ns__.json',
+    defaultLoadingValue: ''
+  };
   ngClipProvider.setPath('js/bower_components/zeroclipboard/dist/ZeroClipboard.swf');
   $urlRouterProvider.otherwise('/'); //Otherwise state
   $stateProvider
@@ -237,7 +245,7 @@ function config($urlRouterProvider, $stateProvider, ngClipProvider) {
       .state(links)
       .state(terms);
 };
-angular.module('partnerWebApp', ['ui.router', 'ngCookies', 'ui.bootstrap', 'ngClipboard'])
+angular.module('partnerWebApp', ['ui.router', 'ngCookies', 'ui.bootstrap', 'ngClipboard','jm.i18next'])
     .run(run)
     .config(config);
 
