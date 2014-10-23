@@ -30,7 +30,7 @@
                   </label>
                   <label>
                     <input type="radio" value="membersignup1.php" ng-model="page" name="linkUrl"/>
-                    Register page
+                    <span ng-i18next="Register_page"></span> 
                   </label>
                   <label>
                     <input type="radio" value="freechat.php" ng-model="page"  name="linkUrl"/>
@@ -54,14 +54,14 @@
                   </select>
                 </div>
                 <div class="form-group radio-group">
-                  <label>Open link:</label>
+                  <label ng-i18next="Open_a_link_in"></label>
                   <label>
                     <input type="radio" value="_top" ng-model="target"/>
-                    Active window
+                    <span ng-i18next="The_current_window"></span>
                   </label>
                   <label>
                     <input type="radio" value="_blank" ng-model="target"/>
-                    New window
+                    <span ng-i18next="The_new_window"></span>
                   </label>
                 </div>
               </div>
