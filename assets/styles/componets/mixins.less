@@ -17,3 +17,16 @@
     border: 1px solid darken(@color,10%);
   }
 }
+.transition(@params) {
+  -webkit-transition: @params;
+  -moz-transition: @params;
+  -ms-transition: @params;
+  -o-transition: @params;
+  transition: @params;
+}
+.transform(@func){
+  transform: @func;
+  -o-transform: @func;
+  -mz-transform: @func;
+  -ms-transform: @func;
+}

@@ -248,5 +248,3 @@ function config($urlRouterProvider, $stateProvider, ngClipProvider, $i18nextProv
 angular.module('partnerWebApp', ['ui.router', 'ngCookies', 'ui.bootstrap', 'ngClipboard','jm.i18next'])
     .run(run)
     .config(config);
-
-

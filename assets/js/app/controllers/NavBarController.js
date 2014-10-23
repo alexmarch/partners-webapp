@@ -15,6 +15,22 @@ function NavBarController($scope, authService, $location, $log, $state, $statePa
   this.log = $log;
   this.$state = $state;
   this.scope.logout = angular.bind(this, this.logout);
+
+    var $menubar = angular.element('*[data-navmenu]');
+    $menubar.on('click',':first', function(e){
+      $menubar.toggleClass('animate');
+      $(this).find('.fa').toggleClass('fa-bars').toggleClass('fa-times');
+      $menubar.find('ul').toggleClass('hide-menu');
+      e.preventDefault();
+    });
+    var offsetTop = angular.element('.main-content').offset().top
+    angular.element(window).scroll(function(){
+      if(window.scrollY >= offsetTop) {
+        $menubar.removeClass('hide-menu')
+      }else if(!$menubar.hasClass('hide-menu')){
+        $menubar.addClass('hide-menu')
+      }
+    });
 };
 
 NavBarController.prototype = {
