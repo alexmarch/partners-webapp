@@ -25,7 +25,7 @@ function NavBarController($scope, authService, $location, $log, $state, $statePa
     });
     var offsetTop = angular.element('.main-content').offset().top
     angular.element(window).scroll(function(){
-      if(window.scrollY >= offsetTop) {
+      if(window.scrollY >= offsetTop-20) {
         $menubar.removeClass('hide-menu')
       }else if(!$menubar.hasClass('hide-menu')){
         $menubar.addClass('hide-menu')
