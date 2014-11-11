@@ -1,4 +1,4 @@
-var fs, mailer, path, Mailgun;
+var fs, mailer, path, Mailgun, mg;
 
 nodemailer = require('nodemailer');
 
@@ -35,8 +35,8 @@ module.exports = {
 //      subject: emailOpts.subject, // Subject line
 //      html: cTpl // html body
 //    };
-
-    Mailgun.sendRaw (emailOpts.from, emailOpts.to, 'Content-Type: text/html; charset=utf-8'
+    mg = new Mailgun(sails.config.mailgun.APIKEY);
+    mg.sendRaw (emailOpts.from, emailOpts.to, 'Content-Type: text/html; charset=utf-8'
                      + '\nSubject: ' + emailOpts.subject+'\n\n'+ cTpl, function(err){
       if(err) {
           sails.log.error(err);

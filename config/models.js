@@ -17,7 +17,7 @@ module.exports.models = {
   * connections (see `config/connections.js`)                                *
   *                                                                          *
   ***************************************************************************/
-  connection: 'mongo', /*Mongo lab connection*/
+  connection: 'mysql', /*Mongo lab connection*/
 
   /***************************************************************************
   *                                                                          *
