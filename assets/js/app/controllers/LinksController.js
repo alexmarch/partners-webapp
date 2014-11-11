@@ -9,6 +9,7 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
   $scope.currentProgramId = programs[1].programID;
   $scope.target = '_top';
   $scope.partnerID = user.id;
+  console.log("USER:",user);
   this.$scope = $scope;
   this.$modal = $modal;
   $scope.updateField = angular.bind(this,this.updateField);

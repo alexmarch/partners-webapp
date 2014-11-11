@@ -145,8 +145,14 @@ module.exports = {
     });
   },
 
-  get: function(req, res){
-    return res.json(req.session.user,200);
+  get: function(req, res, next){
+    User.findOne(req.session.user.id).populate('tracking').exec(function (err, user){
+      if(!err){
+         return res.json(user.toJSON(), 200);
+      }
+      next(err);
+    });
+
   },
 
   confirmEmail: function(req,res){
