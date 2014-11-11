@@ -13,6 +13,7 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
   this.$modal = $modal;
   $scope.updateField = angular.bind(this,this.updateField);
   $scope.openGeneratedTag = angular.bind(this, this.openGeneratedTag);
+  $scope.changeProgram = angular.bind(this, this.changeProgram);
 };
 
 LinksController.prototype = {
@@ -56,6 +57,9 @@ HtmlModalController.prototype = {
   updateLink: function(linkText){
     console.log(linkText);
     this.genereteLink(linkText);
+  },
+  changeProgram: function () {
+    this.$scope.page = this.$scope.currentProgramId === 102 'member/register' : 'performer/register';
   },
   genereteLink: function(linkText){
     this.$scope.linkTag = '<a href="' + this.$scope.link.url + '" target="' + this.$scope.link.target + '" '+(this.$scope.link.onMouseOver ? 'onMouseOver="window.location=this; return true;"' : '')+'">'+linkText+'</a>';
