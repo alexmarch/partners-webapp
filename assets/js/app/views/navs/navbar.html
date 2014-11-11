@@ -42,7 +42,7 @@
           <li ng-class="{active: $state.includes('help')}">
             <a href ui-sref="help">Support</a>
           </li>
-          <li ng-show="user" style="display: none">
+          <li ng-show="user">
             <button class="btn btn-info navbar-btn" ng-click="logout()"><span class="fa fa-sign-out"></span> Sign out</button>
           </li>
           <li ng-hide="user">
