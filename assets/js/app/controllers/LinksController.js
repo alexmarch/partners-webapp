@@ -59,6 +59,7 @@ HtmlModalController.prototype = {
     this.genereteLink(linkText);
   },
   changeProgram: function () {
+    console.log(this.$scope.currentProgramId);
     this.$scope.page = this.$scope.currentProgramId === 102 ? 'member/register' : 'performer/register';
   },
   genereteLink: function(linkText){
