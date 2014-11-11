@@ -8,8 +8,7 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
   $scope.campaignID = campaigns.campaigns[0].id;
   $scope.currentProgramId = programs[1].programID;
   $scope.target = '_top';
-  $scope.partnerID = user.id;
-  console.log("USER:",user);
+  $scope.partnerID = user.tracking.code;
   this.$scope = $scope;
   this.$modal = $modal;
   $scope.updateField = angular.bind(this,this.updateField);
@@ -45,7 +44,6 @@ function HtmlModalController($scope,link, $modalInstance){
   $scope.endClipCopy = angular.bind(this, this.endClipCopy);
   $scope.updateLink = angular.bind(this, this.updateLink);
   $scope.cancel = angular.bind(this, this.cancel);
-
 };
 
 HtmlModalController.prototype = {
@@ -64,9 +62,7 @@ HtmlModalController.prototype = {
   }
 };
 
-
-angular.module('partnerWebApp')
-    .controller('LinksController', LinksController);
+angular.module('partnerWebApp').controller('LinksController', LinksController);
 
 //angular.module('partnerWebApp')
 //    .controller('HtmlModalController', HtmlModalController);
