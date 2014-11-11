@@ -10,8 +10,8 @@
               <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                   <label for="program">Select program:</label>
-                  <select class="form-control" name="program" id="program" ng-model="currentProgramId" ng-change="changeProgram()">
-                    <option ng-repeat="program in programs" value="{{program.programID}}">{{program.name}}</option>
+                  <select class="form-control" name="program" id="program" ng-model="currentProgramId" >
+                    <option ng-repeat="program in programs" value="{{program.programID}}" ng-change="changeProgram()">{{program.name}}</option>
                   </select>
                 </div>
                 <div class="form-group">
