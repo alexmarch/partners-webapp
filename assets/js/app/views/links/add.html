@@ -29,7 +29,7 @@
                     Home page
                   </label>
                   <label>
-                    <input type="radio" value="membersignup1.php" ng-model="page" name="linkUrl"/>
+                    <input type="radio" value="{{currentProgramId === 102 ? 'member/register' : 'performer/register'}}" ng-model="page" name="linkUrl"/>
                     Registration page
                   </label>
                   <label>
