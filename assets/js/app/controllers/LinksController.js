@@ -59,7 +59,7 @@ HtmlModalController.prototype = {
     this.genereteLink(linkText);
   },
   changeProgram: function () {
-    this.$scope.page = this.$scope.currentProgramId === 102 'member/register' : 'performer/register';
+    this.$scope.page = this.$scope.currentProgramId === 102 ? 'member/register' : 'performer/register';
   },
   genereteLink: function(linkText){
     this.$scope.linkTag = '<a href="' + this.$scope.link.url + '" target="' + this.$scope.link.target + '" '+(this.$scope.link.onMouseOver ? 'onMouseOver="window.location=this; return true;"' : '')+'">'+linkText+'</a>';
