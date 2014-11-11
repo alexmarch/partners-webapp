@@ -41,7 +41,7 @@ module.exports.session = {
   * session store that can be shared across multiple Sails.js servers        *
   ***************************************************************************/
 
-  // adapter: 'redis',
+  adapter: 'redis',
 
   /***************************************************************************
   *                                                                          *
@@ -52,12 +52,12 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // host: 'localhost',
-  // port: 6379,
-  // ttl: <redis session TTL in seconds>,
-  // db: 0,
-  // pass: <redis auth password>
-  // prefix: 'sess:'
+  host: process.env.REDIS_HOST || 'localhost',
+  port: 6379,
+  ttl: 24 * 60 * 60 * 30,
+  db: 0,
+  pass: process.env.REDIS_PASS || '',
+  prefix: 'sess:'
 
 
   /***************************************************************************
@@ -67,11 +67,11 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  adapter: 'mongo',
-  host: 'ds041140.mongolab.com',
-  port: 41140,
-  db: 'sails',
-  collection: 'sessions',
+  // adapter: 'mongo',
+  // host: '',
+  // port: 41140,
+  // db: '',
+  // collection: 'sessions',
 
   /***************************************************************************
   *                                                                          *
@@ -82,10 +82,10 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  username: 'sails',
-  password: 'maas1986',
-  auto_reconnect: false,
-  ssl: false,
-  stringify: true
+  // username: '',
+  // password: '',
+  // auto_reconnect: false,
+  // ssl: false,
+  // stringify: true
 
 };
