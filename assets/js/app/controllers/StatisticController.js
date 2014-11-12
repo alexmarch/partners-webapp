@@ -1,4 +1,4 @@
-function StatisticController($scope, programs, sites, campaigns, user, authService){
+function StatisticController($scope, programs, sites, campaigns, user, authService, DTOptionsBuilder, DTColumnBuilder, $resource){
 
   $scope.sites = sites;
   $scope.programs = programs;
