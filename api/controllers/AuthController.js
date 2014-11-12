@@ -146,13 +146,16 @@ module.exports = {
   },
 
   get: function(req, res, next){
-    User.findOne(req.session.user.id).populate('tracking').exec(function (err, user){
-      if(!err){
-         return res.json(user.toJSON(), 200);
-      }
-      next(err);
-    });
-
+    if (req.session.user) {
+      User.findOne(req.session.user.id).populate('tracking').exec(function (err, user){
+        if(!err){
+           return res.json(user.toJSON(), 200);
+        }
+        next(err);
+      });
+    }else{
+      res.json(null, 200);
+    }
   },
 
   confirmEmail: function(req,res){
@@ -169,7 +172,6 @@ module.exports = {
   },
 
   destroy: function (req, res) {
-    console.log(req.session.user);
     if (req.session.user) {
       delete req.session.user;
       return res.json({status: "success"}, 200);
