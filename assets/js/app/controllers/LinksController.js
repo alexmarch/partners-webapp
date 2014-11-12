@@ -25,7 +25,8 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
 
 LinksController.prototype = {
   changeProgram: function () {
-    this.changePage();
+    if(this.$scope.regPageActive)
+      this.changePage();
   },
   regPageRadioChange: function(){
    this.changePage();
