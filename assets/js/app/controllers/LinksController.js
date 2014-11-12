@@ -26,11 +26,11 @@ LinksController.prototype = {
   regPageRadioChange: function(){
     var self = this;
     var index = 0;
-    angular.forEach(this.$scope.programs, function (v, i) {
+    index = angular.forEach(this.$scope.programs, function (v, i) {
       if(v.programID == self.$scope.campaignID){
-        index = i;
+        return i;
       };
-      console.log(v, i);
+      console.log(i);
     }, index);
     this.$scope.page = this.regPageURLs[index];
     console.log("Index", index, this.regPageURLs[index]);
