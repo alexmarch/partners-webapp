@@ -5,6 +5,7 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
   $scope.mouseOverState = 0;
   $scope.domainName = sites[0].domainName;
   $scope.page = 'index.php';
+  $scope.roomName = "nickname";
   $scope.campaignID = campaigns.campaigns[0].id;
   $scope.currentProgramId = programs[0].programID;
   $scope.target = '_top';
