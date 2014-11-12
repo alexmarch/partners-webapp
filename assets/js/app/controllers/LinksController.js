@@ -21,7 +21,7 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
   $scope.openGeneratedTag = angular.bind(this, this.openGeneratedTag);
   $scope.changeProgram = angular.bind(this, this.changeProgram);
   $scope.regPageRadioChange = angular.bind(this, this.regPageRadioChange);
-  $scope.changePage = angular.bind(this, this.changePage);
+  $scope.changeAtherPage = angular.bind(this, this.changeAtherPage);
 };
 
 LinksController.prototype = {
@@ -29,7 +29,8 @@ LinksController.prototype = {
     if(this.$scope.regPageActive)
       this.changePage();
   },
-  changePage: function() {
+  changeAtherPage: function() {
+    console.log("chage ather page");
     this.$scope.regPageActive = false;
   },
   regPageRadioChange: function(){
