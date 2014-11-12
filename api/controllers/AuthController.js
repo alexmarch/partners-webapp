@@ -169,6 +169,7 @@ module.exports = {
   },
 
   destroy: function (req, res) {
+    console.log(req.session.user);
     if (req.session.user) {
       delete req.session.user;
       return res.json({status: "success"}, 200);
