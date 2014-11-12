@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "angularjs": ">=1.2.6",
-    "angular": "~1.2.25",
+    "angular": ">=1.2.6",
     "angular-ui": "~0.4.0",
     "angular-ui-router": "~0.2.11",
     "flatui": "*",
