@@ -6,7 +6,7 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
   $scope.domainName = sites[0].domainName;
   $scope.page = 'index.php';
   $scope.campaignID = campaigns.campaigns[0].id;
-  $scope.currentProgramId = programs[1].programID;
+  $scope.currentProgramId = programs[0].programID;
   $scope.target = '_top';
   $scope.partnerID = user.tracking.code;
 
@@ -23,11 +23,16 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
 };
 
 LinksController.prototype = {
+  changeProgram: function () {
+    this.changePage();
+  },
   regPageRadioChange: function(){
+   this.changePage();
+  },
+  changePage: function () {
     var self = this;
     angular.forEach(this.$scope.programs, function (v, i) {
       if(v.programID == self.$scope.currentProgramId){
-        console.log(v.programID);
         self.$scope.page = self.regPageURLs[i];
         return;
       };
@@ -73,10 +78,6 @@ HtmlModalController.prototype = {
   updateLink: function(linkText){
     console.log(linkText);
     this.genereteLink(linkText);
-  },
-  changeProgram: function () {
-    console.log(this.$scope.currentProgramId);
-    this.$scope.page = this.$scope.currentProgramId === 102 ? 'member/register' : 'performer/register';
   },
   genereteLink: function(linkText){
     this.$scope.linkTag = '<a href="' + this.$scope.link.url + '" target="' + this.$scope.link.target + '" '+(this.$scope.link.onMouseOver ? 'onMouseOver="window.location=this; return true;"' : '')+'">'+linkText+'</a>';
