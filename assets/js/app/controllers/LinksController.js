@@ -10,6 +10,7 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
   $scope.currentProgramId = programs[0].programID;
   $scope.target = '_top';
   $scope.partnerID = user.tracking.code;
+  $scope.regPageActive = false;
 
   this.regPageURLs = ['studio/register','performer/register','member/register'];
   this.$scope = $scope;
