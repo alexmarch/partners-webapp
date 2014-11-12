@@ -40,6 +40,8 @@ module.exports = {
                      + '\nSubject: ' + emailOpts.subject+'\n\n'+ cTpl, function(err){
       if(err) {
           sails.log.error(err);
+      }else{
+        sails.log.debug("Message has bean sent !")
       }
     });
 //    transporter.sendMail(mailOptions, function(error, info){

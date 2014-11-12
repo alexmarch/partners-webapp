@@ -14,6 +14,7 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
   $scope.updateField = angular.bind(this,this.updateField);
   $scope.openGeneratedTag = angular.bind(this, this.openGeneratedTag);
   $scope.changeProgram = angular.bind(this, this.changeProgram);
+  $scope.regPageRadioChange = angular.bind(this, this.regPageRadioChange);
 };
 
 LinksController.prototype = {
@@ -48,6 +49,9 @@ function HtmlModalController($scope,link, $modalInstance){
 };
 
 HtmlModalController.prototype = {
+  regPageRadioChange: function(){
+    console.log("Reg Page Radio change");
+  },
   endClipCopy: function(){
     this.$modalInstance.close();
   },
