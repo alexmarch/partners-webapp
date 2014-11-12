@@ -48,6 +48,7 @@ module.exports.routes = {
   '/affiliate/close': 'AuthController.destroy',
   '/affiliate/current/user': 'AuthController.get',
 
+  'get /affiliate/statistic': 'StatisticController.statistic',
   /**
    * Campaigns routes
    */
@@ -67,4 +68,5 @@ module.exports.routes = {
    * Confirm email
    */
   'get /confirm/email/:token': 'AuthController.confirmEmail'
+
 };

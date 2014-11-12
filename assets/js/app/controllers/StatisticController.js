@@ -12,13 +12,13 @@ function StatisticController($scope, programs, sites, campaigns, user, authServi
   $scope.partnerID = user.id;
 
   $scope.dtOptions = DTOptionsBuilder.fromFnPromise(function() {
-    return $resource('data.json').query().$promise;
+    return $resource('/affiliate/statistic').query().$promise;
   }).withPaginationType('full_numbers');
 
   $scope.dtColumns = [
     DTColumnBuilder.newColumn('id').withTitle('ID'),
-    DTColumnBuilder.newColumn('campaignID').withTitle('campaignID'),
-    DTColumnBuilder.newColumn('programID').withTitle('programID')//.notVisible()
+    DTColumnBuilder.newColumn('login').withTitle('User name'),
+    DTColumnBuilder.newColumn('partner_id').withTitle('Traking code')//.notVisible()
   ];
 
 };
