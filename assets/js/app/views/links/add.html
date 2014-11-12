@@ -25,7 +25,7 @@
                 <div class="form-group radio-group">
                   <p>Link url:</p>
                   <label>
-                    <input type="radio" value="index.php" ng-model="page" name="linkUrl" checked/>
+                    <input type="radio" value="index.php" ng-model="page" name="linkUrl" checked ng-change="changePage()"/>
                     Home page
                   </label>
                   <label>
@@ -34,11 +34,11 @@
                     Registration page
                   </label>
                   <label>
-                    <input type="radio" value="freechat.php" ng-model="page"  name="linkUrl"/>
+                    <input type="radio" value="freechat.php" ng-model="page"  name="linkUrl" ng-change="changePage()"/>
                     Free chat page
                   </label>
                   <label>
-                    <input type="radio" value="model/" name="linkUrl" ng-model="page"/>
+                    <input type="radio" value="model/" name="linkUrl" ng-model="page" ng-change="changePage()"/>
                     Model chat page
                   </label>
                   <label ng-show="page === 'model/'">

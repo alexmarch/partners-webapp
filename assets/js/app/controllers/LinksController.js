@@ -21,13 +21,16 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
   $scope.openGeneratedTag = angular.bind(this, this.openGeneratedTag);
   $scope.changeProgram = angular.bind(this, this.changeProgram);
   $scope.regPageRadioChange = angular.bind(this, this.regPageRadioChange);
-  
+  $scope.changePage = angular.bind(this, this.changePage);
 };
 
 LinksController.prototype = {
   changeProgram: function () {
     if(this.$scope.regPageActive)
       this.changePage();
+  },
+  changePage: function() {
+    this.$scope.regPageActive = false;
   },
   regPageRadioChange: function(){
    this.changePage();
