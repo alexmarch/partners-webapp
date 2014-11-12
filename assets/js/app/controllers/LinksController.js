@@ -25,8 +25,7 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
 LinksController.prototype = {
   regPageRadioChange: function(){
     var self = this;
-    console.log(this.$scope.campaigns);
-    var index = angular.forEach(this.$scope.campaigns, function (v, i) {
+    var index = angular.forEach(this.$scope.campaigns.campaigns, function (v, i) {
       console.log(v);
       if(v.programID == self.$scope.campaignID){
         return i;
