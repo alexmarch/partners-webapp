@@ -26,15 +26,12 @@ LinksController.prototype = {
   regPageRadioChange: function(){
     var self = this;
     angular.forEach(this.$scope.programs, function (v, i) {
-      console.log(v.programID, self.$scope.campaignID);
-      if(v.programID == self.$scope.campaignID){
+      if(v.programID == self.$scope.currentProgramId){
         console.log(v.programID);
         self.$scope.page = self.regPageURLs[i];
         return;
       };
     });
-    
-    console.log("Index:", idx);
   },
   openGeneratedTag : function(){
     var this_ = this;
