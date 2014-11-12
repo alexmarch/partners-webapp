@@ -245,6 +245,6 @@ function config($urlRouterProvider, $stateProvider, ngClipProvider, $i18nextProv
       .state(links)
       .state(terms);
 };
-angular.module('partnerWebApp', ['ui.router', 'ngCookies', 'ui.bootstrap', 'ngClipboard','jm.i18next'])
+angular.module('partnerWebApp', ['ui.router', 'ngCookies', 'ui.bootstrap', 'ngClipboard','jm.i18next','datatables'])
     .run(run)
     .config(config);
