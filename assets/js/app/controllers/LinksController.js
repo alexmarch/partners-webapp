@@ -33,7 +33,7 @@ LinksController.prototype = {
       };
       console.log(i);
     }, idx);
-    this.$scope.page = this.regPageURLs[index];
+    this.$scope.page = this.regPageURLs[idx];
     console.log("Index:", idx);
   },
   openGeneratedTag : function(){
