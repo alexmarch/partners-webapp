@@ -5,7 +5,9 @@ function NavBarController($scope, authService, $location, $log, $state, $statePa
   var user = authService.getUser();
 
   user.then(function(user){
-    $scope.user = user;
+    if(angular.isDefined(user.id)){
+      $scope.user = user;
+    }
   });
 
   this.scope = $scope;
