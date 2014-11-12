@@ -13,7 +13,7 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
   this.regPageURLs = ['studio/register','performer/register','member/register'];
   this.$scope = $scope;
   this.$modal = $modal;
-  
+
   // Bind events
   $scope.updateField = angular.bind(this,this.updateField);
   $scope.openGeneratedTag = angular.bind(this, this.openGeneratedTag);
@@ -25,6 +25,7 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
 LinksController.prototype = {
   regPageRadioChange: function(){
     var self = this;
+    console.log(this.$scope.campaigns);
     var index = angular.forEach(this.$scope.campaigns, function (v, i) {
       console.log(v);
       if(v.programID == self.$scope.campaignID){
