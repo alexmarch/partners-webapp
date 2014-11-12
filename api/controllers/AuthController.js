@@ -154,7 +154,7 @@ module.exports = {
         next(err);
       });
     }else{
-      res.json(null, 200);
+      res.json({}, 401);
     }
   },
 
