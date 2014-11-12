@@ -12,15 +12,25 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
   $scope.updateField = angular.bind(this,this.updateField);
   $scope.openGeneratedTag = angular.bind(this, this.openGeneratedTag);
   $scope.changeProgram = angular.bind(this, this.changeProgram);
-  $scope.regPageRadioChange = function(){
-    console.log("this is click") //fix#3
-  };
+  $scope.regPageRadioChange = angular.bind(this, this.regPageRadioChange);
   //fix#1
   this.$scope = $scope;
   this.$modal = $modal;
+  this.regPageURLs = ['studio/register','performer/register','member/register'];
 };
 
 LinksController.prototype = {
+  regPageRadioChange: function(){
+    var self = this;
+    var index = angular.forEach(this.$scope.campaigns, function (v, i) {
+      if(v.programID == self.$scope.campaignID){
+        return i;
+      }
+      console.log(v, i);
+    });
+    this.$scope.page = this.regPageURLs[index];
+    console.log("Index",index, this.regPageURLs[index]);
+  },
   openGeneratedTag : function(){
     var this_ = this;
     this.$modal.open({
@@ -52,9 +62,6 @@ function HtmlModalController($scope,link, $modalInstance){
 };
 
 HtmlModalController.prototype = {
-  regPageRadioChange: function(){
-    console.log("Reg Page Radio change");
-  },
   endClipCopy: function(){
     this.$modalInstance.close();
   },
