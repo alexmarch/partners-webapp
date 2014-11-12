@@ -9,14 +9,17 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
   $scope.currentProgramId = programs[1].programID;
   $scope.target = '_top';
   $scope.partnerID = user.tracking.code;
+
+  this.regPageURLs = ['studio/register','performer/register','member/register'];
+  this.$scope = $scope;
+  this.$modal = $modal;
+  
+  // Bind events
   $scope.updateField = angular.bind(this,this.updateField);
   $scope.openGeneratedTag = angular.bind(this, this.openGeneratedTag);
   $scope.changeProgram = angular.bind(this, this.changeProgram);
   $scope.regPageRadioChange = angular.bind(this, this.regPageRadioChange);
-  //fix#1
-  this.$scope = $scope;
-  this.$modal = $modal;
-  this.regPageURLs = ['studio/register','performer/register','member/register'];
+  
 };
 
 LinksController.prototype = {
