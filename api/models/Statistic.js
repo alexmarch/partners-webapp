@@ -13,7 +13,7 @@ module.exports = {
   getByFilter: function (opts, cb) {
   	// @todo - ge statistic by filter
   	Statistic.query('SELECT authorize.login, authorize.partner_id, authorize.program_id, authorize.campaign_id ' +
-  		'FROM authorize WHERE partner_id = ?', [opts.user.tracking.id], function (err, result) {
+  		'FROM authorize WHERE partner_id = ?', [opts.tracking.id], function (err, result) {
   			if(err){
   				return cb(err,null);
   			}
