@@ -12,7 +12,9 @@ function LinksController($scope, programs, sites, campaigns, user, $modal, $sce,
   $scope.updateField = angular.bind(this,this.updateField);
   $scope.openGeneratedTag = angular.bind(this, this.openGeneratedTag);
   $scope.changeProgram = angular.bind(this, this.changeProgram);
-  $scope.regPageRadioChange = angular.bind(this, this.regPageRadioChange);
+  $scope.regPageRadioChange = function(){
+    console.log("this is click") //fix#3
+  };
   //fix#1
   this.$scope = $scope;
   this.$modal = $modal;
