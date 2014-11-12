@@ -7,9 +7,8 @@
 
 module.exports = {
   statistic: function(req, res, next){
-  	Statistic.getByFilter(req.session.user,function(err, result){
+  	Statistic.getByFilter(req.session.user, function(err, result){
   		if(err) return next(err);
-  		console.log(result);
   		res.json(result, 200);
   	});
   }

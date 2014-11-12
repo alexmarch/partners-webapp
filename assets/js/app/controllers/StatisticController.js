@@ -16,9 +16,11 @@ function StatisticController($scope, programs, sites, campaigns, user, authServi
   }).withPaginationType('full_numbers');
 
   $scope.dtColumns = [
-    DTColumnBuilder.newColumn('id').withTitle('ID'),
+    // DTColumnBuilder.newColumn('id').withTitle('ID'),
     DTColumnBuilder.newColumn('login').withTitle('User name'),
-    DTColumnBuilder.newColumn('partner_id').withTitle('Traking code')//.notVisible()
+    DTColumnBuilder.newColumn('partner_id').withTitle('Traking code'),//.notVisible()
+    DTColumnBuilder.newColumn('program_id').withTitle('Program ID'),
+    DTColumnBuilder.newColumn('campaign_id').withTitle('Campaign ID')
   ];
 
 };
