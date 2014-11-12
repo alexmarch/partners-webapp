@@ -41,6 +41,8 @@ var jsFilesToInject = [
   'js/bower_components/angular-animate/angular-animate.min.js',
   'js/bower_components/i18next/i18next.min.js',
   'js/bower_components/ng-i18next/dist/ng-i18next.min.js',
+  'js/bower_components/media/js/jquery.dataTables.min.js',
+  'js/bower_components/angular-datatables/dist/angular-datatables.min.js',
   'js/app/app.js',
   'js/app/services/**/*.js',
   'js/app/controllers/**/*.js',
