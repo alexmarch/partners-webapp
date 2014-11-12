@@ -28,7 +28,8 @@ LinksController.prototype = {
     var idx = 0;
     angular.forEach(this.$scope.programs, function (v, i) {
       if(v.programID == self.$scope.campaignID){
-        idx = i;
+        console.log(v.programID, self.$scope.campaignID);
+        this = i;
         return;
       };
       console.log(i);
