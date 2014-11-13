@@ -3,6 +3,19 @@
     <div class="col-lg-12 col-md-12">
       <div class="container-fluid form-groups-wrapper">
         <h1 class="caption"><i class="fa fa-table"></i> Statistic</h1>
+      	<div class="container">
+      		<div class="form-group">
+      			<label for="program">Select program:</label>
+                  <select class="form-control" name="program" id="program" ng-model="currentProgramId" ng-change="changeProgram()">
+                    <option ng-repeat="program in programs" value="{{program.programID}}">{{program.name}}</option>
+                  </select>
+              <label for="program">Select campaign:</label>
+                      <select class="form-control" name="campaign" id="campaign" ng-model="campaignID">
+                        <option ng-repeat="campaign in campaigns.campaigns" value="{{campaign.id}}">{{campaign.name}}</option>
+                      </select>
+              
+      		</div>
+      	</div>
       	<table datatable="ng" class="row-border hover table">
 					<thead>
 						<tr>
