@@ -13,7 +13,7 @@ function StatisticController($scope, programs, sites, campaigns, user, authServi
 
   // $scope.statistic = $resource('/affiliate/statistic').query();
   
-  console.log ( statistic );
+  $scope.statistic = statistic;
   
   $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
 
