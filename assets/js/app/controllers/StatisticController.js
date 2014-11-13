@@ -11,6 +11,10 @@ function StatisticController($scope, programs, sites, campaigns, user, authServi
   $scope.currentProgramId = programs[1].programID;
   $scope.partnerID = user.id;
 
+  $resource('/affiliate/statistic').query(function(list){
+    console.log("query list", list);
+  });
+
   $scope.dtOptions = DTOptionsBuilder.fromFnPromise(function() {
     return $resource('/affiliate/statistic').query().$promise;
   }).withPaginationType('full_numbers');
