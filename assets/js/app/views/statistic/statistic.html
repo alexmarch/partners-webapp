@@ -32,7 +32,7 @@
             	 <td>{{ person.partner_id }}</td>
             	 <td>{{ person.program_id }}</td>
             	 <td>{{ person.campaign_id }}</td>
-            	 <td>{{ person.billedchips }}</td>
+            	 <td>{{ person.billedchips || 0 }}</td>
             	 <td>{{ parson.data | date:'yyyy-MM-dd HH:mm:ss' }}</td>
 						</tr>
 					</tbody>
