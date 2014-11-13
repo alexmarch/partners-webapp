@@ -15,7 +15,9 @@ function StatisticController($scope, programs, sites, campaigns, user, authServi
   
   $scope.statistic = statistic;
   
-  $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
+  this.$scope = $scope;
+
+  // $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
 
   // $scope.dtColumns = [
   //   // DTColumnBuilder.newColumn('id').withTitle('ID'),
