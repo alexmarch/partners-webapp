@@ -12,11 +12,11 @@ module.exports = {
   },
   getByFilter: function (opts, cb) {
 
-    var q = 'SELECT authorize.id, authorize.login, authorize.partner_id, authorize.program_id,' + 
+    var q = 'SELECT authorize.id, authorize.login, authorize.partner_id, authorize.program_id, ' + 
     'authorize.campaign_id, sessions.billedchips, sessions.date ' +
     'FROM authorize ' +
     'LEFT JOIN sessions ' +
-    'ON authorize.id = sessions.userid' +
+    'ON authorize.id = sessions.userid ' +
     'WHERE partner_id=?';
 
   	Statistic.query(q, [opts.tracking.code], function (err, result) {
