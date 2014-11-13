@@ -5,7 +5,6 @@ function StatisticController($scope, programs, campaigns, user, authService, DTO
   $scope.authService = authService;
   $scope.currentBannerType = 1;
   //Set default values
-  $scope.domainName = sites[0].domainName;
   $scope.campaignID = campaigns.campaigns[0].id;
   $scope.currentProgramId = programs[1].programID;
   $scope.partnerID = user.id;
@@ -16,7 +15,7 @@ function StatisticController($scope, programs, campaigns, user, authService, DTO
   this.$scope = $scope;
   
   this.chageCampaign = angular.bind(this, this.chageCampaign);
-  this.changeProgram = angular.bind(this, this.chageCampaign);
+  this.changeProgram = angular.bind(this, this.changeProgram);
 
   // $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
 
