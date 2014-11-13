@@ -1,4 +1,4 @@
-function StatisticController($scope, programs, sites, campaigns, user, authService, DTOptionsBuilder, DTColumnBuilder, $resource){
+function StatisticController($scope, programs, sites, campaigns, user, authService, DTOptionsBuilder, DTColumnBuilder, $resource, statistic){
 
   $scope.sites = sites;
   $scope.programs = programs;
@@ -11,9 +11,9 @@ function StatisticController($scope, programs, sites, campaigns, user, authServi
   $scope.currentProgramId = programs[1].programID;
   $scope.partnerID = user.id;
 
-  $scope.statistic = $resource('/affiliate/statistic').query();
+  // $scope.statistic = $resource('/affiliate/statistic').query();
   
-  console.log($scope.statistic);
+  console.log ( statistic );
   
   $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
 
@@ -48,6 +48,9 @@ StatisticController.resolve = {
       }
     });
     return campaignsList;
+  },
+  statistic: function ($resource) {
+    return $resource('/affiliate/statistic').query().$promise;
   }
 };
 
