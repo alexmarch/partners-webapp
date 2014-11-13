@@ -13,11 +13,11 @@ module.exports = {
   getByFilter: function (opts, cb) {
 
     var q = 'SELECT authorize.id, authorize.login, authorize.partner_id, authorize.program_id, ' + 
-    'authorize.campaign_id, sessions.billedchips, sessions.date ' +
+    'authorize.campaign_id, sum(sessions.billedchips), sessions.date ' +
     'FROM authorize ' +
     'LEFT JOIN sessions ' +
     'ON authorize.id = sessions.userid ' +
-    'WHERE partner_id=?';
+    'WHERE partner_id=? GROUP BY sessions.userid';
 
   	Statistic.query(q, [opts.tracking.code], function (err, result) {
   			if(err){
