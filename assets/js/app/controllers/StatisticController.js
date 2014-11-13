@@ -1,6 +1,5 @@
-function StatisticController($scope, programs, sites, campaigns, user, authService, DTOptionsBuilder, DTColumnBuilder, $resource, statistic){
+function StatisticController($scope, programs, campaigns, user, authService, DTOptionsBuilder, DTColumnBuilder, $resource, statistic){
 
-  $scope.sites = sites;
   $scope.programs = programs;
   $scope.campaigns = campaigns;
   $scope.authService = authService;
@@ -15,6 +14,9 @@ function StatisticController($scope, programs, sites, campaigns, user, authServi
   $scope.persones = statistic;
   
   this.$scope = $scope;
+  
+  this.chageCampaign = angular.bind(this, this.chageCampaign);
+  this.changeProgram = angular.bind(this, this.chageCampaign);
 
   // $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
 
@@ -28,6 +30,15 @@ function StatisticController($scope, programs, sites, campaigns, user, authServi
 
 };
 
+StatisticController.prototype = {
+  chageCampaign: function () {
+    console.log("Change campaign");
+  },
+  changeProgram: function () {
+    console.log("Change program");
+  }
+};
+
 StatisticController.resolve = {
   isAuthorized: function(authService) {
     return authService.isAuthorized()
@@ -37,9 +48,6 @@ StatisticController.resolve = {
   },
   programs: function(linksService){
     return linksService.getPrograms();
-  },
-  sites: function(linksService){
-    return linksService.getSites();
   },
   campaigns: function(campaignService, $state){
     var campaignsList = campaignService.list();
@@ -51,7 +59,7 @@ StatisticController.resolve = {
     return campaignsList;
   },
   statistic: function ($resource) {
-    return $resource('/affiliate/statistic').query().$promise;
+    return $resource('/affiliate/statistic').query();
   }
 };
 

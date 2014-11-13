@@ -11,9 +11,15 @@ module.exports = {
 
   },
   getByFilter: function (opts, cb) {
-  	// @todo - ge statistic by filter
-  	Statistic.query('SELECT authorize.login, authorize.partner_id, authorize.program_id, authorize.campaign_id ' +
-  		'FROM authorize WHERE partner_id = ?', [opts.tracking.code], function (err, result) {
+
+    var q = 'SELECT authorize.id, authorize.login, authorize.partner_id, authorize.program_id,' + 
+    'authorize.campaign_id, sessions.billedchips, sessions.date ' +
+    'FROM authorize ' +
+    'LEFT JOIN sessions ' +
+    'ON authorize.id = sessions.userid' +
+    'WHERE partner_id=?';
+
+  	Statistic.query(q, [opts.tracking.code], function (err, result) {
   			if(err){
   				return cb(err,null);
   			}

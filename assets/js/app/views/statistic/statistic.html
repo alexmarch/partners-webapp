@@ -6,7 +6,7 @@
       	<div class="container-fluid">
       		<div class="form-group">
       		  <label for="program">Select campaign:</label>
-                      <select class="form-control" name="campaign" id="campaign" ng-model="campaignID">
+                      <select class="form-control" name="campaign" id="campaign" ng-model="campaignID" ng-change="chageCampaign()">
                         <option ng-repeat="campaign in campaigns.campaigns" value="{{campaign.id}}">{{campaign.name}}</option>
                       </select>
       			<label for="program">Select program:</label>
