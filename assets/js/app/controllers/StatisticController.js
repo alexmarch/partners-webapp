@@ -12,6 +12,9 @@ function StatisticController($scope, programs, sites, campaigns, user, authServi
   $scope.partnerID = user.id;
 
   $scope.statistic = $resource('/affiliate/statistic').query();
+  
+  console.log($scope.statistic);
+  
   $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
 
   // $scope.dtColumns = [
