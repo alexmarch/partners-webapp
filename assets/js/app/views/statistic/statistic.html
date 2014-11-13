@@ -22,6 +22,8 @@
 							<th>Traking code</th>
 							<th>Program ID</th>
 							<th>Campaign ID</th>
+							<th>Spent</th>
+							<th>Date</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -30,6 +32,8 @@
             	 <td>{{ person.partner_id }}</td>
             	 <td>{{ person.program_id }}</td>
             	 <td>{{ person.campaign_id }}</td>
+            	 <td>{{ person.billedchips }}</td>
+            	 <td>{{ parson.data | date:'yyyy-MM-dd HH:mm:ss' }}</td>
 						</tr>
 					</tbody>
 				</table>
