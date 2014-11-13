@@ -12,7 +12,6 @@ function StatisticController($scope, programs, sites, campaigns, user, authServi
   $scope.partnerID = user.id;
 
   // $scope.statistic = $resource('/affiliate/statistic').query();
-  this.persones = statistic;
   $scope.persones = statistic;
   
   this.$scope = $scope;
