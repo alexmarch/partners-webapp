@@ -11,21 +11,16 @@ function StatisticController($scope, programs, sites, campaigns, user, authServi
   $scope.currentProgramId = programs[1].programID;
   $scope.partnerID = user.id;
 
-  $resource('/affiliate/statistic').query(function(list){
-    console.log("query list", list);
-  });
+  $scope.statistic = $resource('/affiliate/statistic').query();
+  $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
 
-  $scope.dtOptions = DTOptionsBuilder.fromFnPromise(function() {
-    return $resource('/affiliate/statistic').query().$promise;
-  }).withPaginationType('full_numbers');
-
-  $scope.dtColumns = [
-    // DTColumnBuilder.newColumn('id').withTitle('ID'),
-    DTColumnBuilder.newColumn('login').withTitle('User name'),
-    DTColumnBuilder.newColumn('partner_id').withTitle('Traking code'),//.notVisible()
-    DTColumnBuilder.newColumn('program_id').withTitle('Program ID'),
-    DTColumnBuilder.newColumn('campaign_id').withTitle('Campaign ID')
-  ];
+  // $scope.dtColumns = [
+  //   // DTColumnBuilder.newColumn('id').withTitle('ID'),
+  //   DTColumnBuilder.newColumn('login').withTitle('User name'),
+  //   DTColumnBuilder.newColumn('partner_id').withTitle('Traking code'),//.notVisible()
+  //   DTColumnBuilder.newColumn('program_id').withTitle('Program ID'),
+  //   DTColumnBuilder.newColumn('campaign_id').withTitle('Campaign ID')
+  // ];
 
 };
 
