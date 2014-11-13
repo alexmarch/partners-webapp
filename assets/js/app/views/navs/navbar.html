@@ -8,10 +8,10 @@
       <div class="navbar-collapse collapse" id="mainmenu">
         <ul class="nav navbar-nav navbar-right">
           <li ng-hide="user" ng-class="{active: $state.includes('home') }">
-            <a href="#"><span class="fa fa-home"></span> Home</a>
+            <a ui-sref="home"><span class="fa fa-home"></span> Home</a>
           </li>
           <li ng-show="user" ng-class="{active: $state.includes('dashboard')}">
-            <a href="#"><span class="fa fa-dashboard"></span> Dashboard</a>
+            <a ui-sref="dashboard"><span class="fa fa-dashboard"></span> Dashboard</a>
           </li>
           <li ng-show="user" ng-class="{active: $state.includes('statistic')}">
             <a href ui-sref="statistic"><i class="fa fa-bar-chart"></i> Statistic</a>
