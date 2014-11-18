@@ -66,10 +66,10 @@ StatisticController.state = {
   name: "statistic",
   url: "/statistic",
   views: {
-    "navBarView": {
-      templateUrl: basePath + "views/navs/navbar.html",
-      controller: 'NavBarController as navbarc'
-    },
+    // "navBarView": {
+    //   templateUrl: basePath + "views/navs/navbar.html",
+    //   controller: 'NavBarController as navbarc'
+    // },
     "contentView": {
       templateUrl: basePath + 'views/statistic/statistic.html',
       controller: 'StatisticController as statistic',
