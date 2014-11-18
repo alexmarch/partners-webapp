@@ -1,6 +1,6 @@
 {
   "name": "partners-webapp",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "authors": [
     "XXX"
   ],
@@ -14,7 +14,6 @@
     "tests"
   ],
   "dependencies": {
-    "angularjs": ">=1.2.6",
     "angular": ">=1.2.6",
     "angular-ui": "~0.4.0",
     "angular-ui-router": "~0.2.11",
