@@ -1,14 +1,17 @@
 function NavBarController($scope, authService, $location, $log, $state, $stateParams){
 
-  $scope.user = authService.getUser();
-
-  var user = authService.getUser();
-
-  user.then(function(user){
-    if(angular.isDefined(user.id)){
-      $scope.user = user;
-    }
+  authService.getUser().then(function(currentUser){
+    $scope.user = currentUser;
+    console.log($scope.user);
   });
+  
+  // var user = authService.getUser();
+
+  // user.then(function(user){
+  //   if(angular.isDefined(user.id)){
+  //     $scope.user = user;
+  //   }
+  // });
 
   this.scope = $scope;
 
