@@ -1,6 +1,6 @@
 function NavBarController($scope, authService, $location, $log, $state, $stateParams){
 
-  $scope.user = null;
+  $scope.user = authService.getUser();
 
   var user = authService.getUser();
 
