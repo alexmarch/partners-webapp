@@ -48,7 +48,7 @@
           <li ng-show="user.id">
             <button class="btn btn-info navbar-btn" ng-click="logout()"><span class="fa fa-sign-out"></span> Sign out</button>
           </li>
-          <li ng-show="user.id">
+          <li ng-hide="user.id">
             <button ui-sref="signin" class="btn btn-primary navbar-btn"><span class="fa fa-lock"></span> Sign In</button>
           </li>
           <li ng-hide="user.id">
