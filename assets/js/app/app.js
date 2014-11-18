@@ -214,7 +214,7 @@ var terms = {
     "footerView": {templateUrl: basePath + "views/footer/footer.html"}
   }
 }
-function run($rootScope, $state, $stateParams) {
+function run($rootScope, $state, $stateParams, authService) {
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
   authService.getUser().then(function(currentUser){
