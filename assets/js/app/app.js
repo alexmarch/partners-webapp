@@ -217,6 +217,10 @@ var terms = {
 function run($rootScope, $state, $stateParams) {
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
+  authService.getUser().then(function(currentUser){
+    $rootScope.user = currentUser;
+  });
+  console.log('run app');
 }
 
 function config($urlRouterProvider, $stateProvider, ngClipProvider, $i18nextProvider) {

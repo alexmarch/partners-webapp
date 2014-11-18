@@ -4,7 +4,8 @@ function NavBarController($scope, authService, $location, $log, $state, $statePa
     $scope.user = currentUser;
     console.log($scope.user);
   });
-  
+
+  console.log(authService.getUser().$promise);
   // var user = authService.getUser();
 
   // user.then(function(user){
