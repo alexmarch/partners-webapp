@@ -172,12 +172,15 @@ module.exports = {
   },
 
   destroy: function (req, res) {
-    if (req.session.user) {
-      delete req.session.user;
-      return res.json({status: "success"}, 200);
-    } else {
-      return res.json({message: "Login error"}, 400);
-    }
+    delete req.session.user;
+    return res.json({status: "success"}, 200);
+    // if (req.session.user) {
+    //   delete req.session.user;
+    //   return res.json({status: "success"}, 200);
+    // } else {
+
+    //   return res.json({message: "Login error"}, 400);
+    // }
   }
 };
 
