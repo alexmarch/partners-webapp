@@ -1,7 +1,7 @@
 angular.module('partnerWebApp')
   .config(['$translateProvider', function($translateProvider){
     $translateProvider.useStaticFilesLoader({
-      'prefix': 'l10n/',
+      'prefix': 'js/app/l10n/',
       'suffix': '.json'
     });
     $translateProvider.preferredLanguage('en');
