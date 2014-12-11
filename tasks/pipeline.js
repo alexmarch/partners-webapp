@@ -44,7 +44,10 @@ var jsFilesToInject = [
   'js/bower_components/angular-resource/angular-resource.min.js',
   'js/bower_components/datatables/media/js/jquery.dataTables.min.js',
   'js/bower_components/angular-datatables/dist/angular-datatables.min.js',
+  'js/bower_components/angular-translate/angular-translate.min.js',
   'js/app/app.js',
+  'js/app/config.router.js',
+  'js/app/config.js',
   'js/app/services/**/*.js',
   'js/app/controllers/**/*.js',
   'js/app/directives/**/*.js'

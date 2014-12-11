@@ -1,0 +1,87 @@
+<div class="container" animate-container>
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="container-fluid form-groups-wrapper">
+        <h1 class="caption"><i class="fa fa-table"></i> PopUp</h1>
+
+        <div class="content content-inverse">
+          <div class="row">
+            <form novalidate="">
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="program">Select program:</label>
+                  <select class="form-control" name="program" id="program" ng-model="currentProgramId">
+                    <option ng-repeat="program in programs" value="{{program.programID}}">{{program.name}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="program">Select site:</label>
+                  <select class="form-control" name="site" id="site" ng-model="domainName" ng-change="changeDomain()">
+                    <option ng-repeat="site in sites" value="{{site.domainName}}" ng-selected="$index == 0">
+                      {{site.domainName}}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group radio-group">
+                  <p>Link url:</p>
+                  <label>
+                    <input type="radio" value="index.php" ng-model="page" name="linkUrl" checked/>
+                    Home page
+                  </label>
+                  <label>
+                    <input type="radio" value="membersignup1.php" ng-model="page" name="linkUrl"/>
+                    <span ng-i18next="Register_page"></span> 
+                  </label>
+                  <label>
+                    <input type="radio" value="freechat.php" ng-model="page"  name="linkUrl"/>
+                    Free chat page
+                  </label>
+                  <label>
+                    <input type="radio" value="modelRoom.php" name="linkUrl" ng-model="page"/>
+                    Model chat page
+                  </label>
+                  <label ng-show="page === 'modelRoom.php'">
+                    Room name:
+                    <input type="text" ng-model="roomName" name="page"  />
+                  </label>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="program">Select campaign:</label>
+                  <select class="form-control" name="campaign" id="campaign" ng-model="campaignID">
+                    <option ng-repeat="campaign in campaigns.campaigns" value="{{campaign.id}}">{{campaign.name}}</option>
+                  </select>
+                </div>
+                <div class="form-group radio-group">
+                  <label ng-i18next="Open_a_link_in"></label>
+                  <label>
+                    <input type="radio" value="_top" ng-model="target"/>
+                    <span ng-i18next="The_current_window"></span>
+                  </label>
+                  <label>
+                    <input type="radio" value="_blank" ng-model="target"/>
+                    <span ng-i18next="The_new_window"></span>
+                  </label>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="row">
+            <div class="col-lg-10 col-md-10">
+              <div class="bg-info" id="linkHref">
+                http://{{domainName}}/{{page}}?partnerID={{partnerID}}&{{page === 'modelRoom.php' ? 'roomID=' + roomName + '&' : ''}}programID={{currentProgramId}}&campaignID={{campaignID}}
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2">
+              <button class="btn btn-primary" style="padding: 20px" ng-click="openGeneratedTag()">Generate html</button>
+            </div>
+            <script type="text/ng-template" id="htmlLinkModal.html">
+
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

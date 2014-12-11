@@ -2,5 +2,5 @@
 
 # Run
 ```sh
-DOMAIN=somedomainname MAILGUN_API_KEY=apikey REDIS_PASS=redispass forever start app.js --port [port]
+DOMAIN=somedomainname MAILGUN_API_KEY=apikey REDIS_PASS=redispass forever start config.router.js --port [port]
 ```

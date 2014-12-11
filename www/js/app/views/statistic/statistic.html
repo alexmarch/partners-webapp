@@ -1,0 +1,43 @@
+<div class="container" animate-container>
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="container-fluid form-groups-wrapper">
+        <h1 class="caption"><i class="fa fa-table"></i> Statistic</h1>
+      	<div class="container-fluid">
+      		<div class="form-group">
+      		  <label for="program">Select campaign:</label>
+                      <select class="form-control" name="campaign" id="campaign" ng-model="campaignID" ng-change="chageCampaign()">
+                        <option ng-repeat="campaign in campaigns.campaigns" value="{{campaign.id}}">{{campaign.name}}</option>
+                      </select>
+      			<label for="program">Select program:</label>
+                  <select class="form-control" name="program" id="program" ng-model="currentProgramId" ng-change="changeProgram()">
+                    <option ng-repeat="program in programs" value="{{program.programID}}">{{program.name}}</option>
+                  </select>
+      		</div>
+      	</div>
+      	<table datatable="ng" class="row-border hover table">
+					<thead>
+						<tr>
+							<th>User name</th>
+							<th>Traking code</th>
+							<th>Program ID</th>
+							<th>Campaign ID</th>
+							<th>Spent</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="person in persones">
+							 <td>{{ person.login }}</td>
+            	 <td>{{ person.partner_id }}</td>
+            	 <td>{{ person.program_id }}</td>
+            	 <td>{{ person.campaign_id }}</td>
+            	 <td>{{ person.billedchips || 0 }}</td>
+            	 <td>{{ parson.data | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+						</tr>
+					</tbody>
+				</table>
+      </div>
+    </div>
+   </div>
+</div>
