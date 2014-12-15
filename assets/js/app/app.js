@@ -6,4 +6,5 @@ angular.module('partnerWebApp',
     'ngClipboard',
     'jm.i18next',
     'datatables',
-    'pascalprecht.translate']);
+    'pascalprecht.translate',
+    'app.locale']);
