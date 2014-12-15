@@ -5,7 +5,7 @@ angular.module('app.locale', ['pascalprecht.translate']);
 angular.module('app.locale').directive('appLocale', ['$translate', function($translate) {
   return {
     strict: 'AE',
-    templateUrl: "Locale/locale.html" ,
+    templateUrl: "js/app/Locale/locale.html",
     scope: {
       langs: "@"
     },
