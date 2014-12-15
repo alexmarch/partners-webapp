@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-8 col-md-8">
       <div class="container-fluid form-groups-wrapper">
-        <h1 class="caption">Welcome</h1>
+        <h1 class="caption" translate="Welcome">Welcome</h1>
 
         <div class="signup-text">
           <!--<img src="images/partners/running.png" alt="" align="left"/>-->
@@ -36,30 +36,30 @@
   </div>
   <div class="col-lg-4 col-md-4">
     <div class="container-fluid form-groups-wrapper">
-      <h1 class="caption">Register Affiliate</h1>
+      <h1 class="caption" translate="Register Affiliate">Register Affiliate</h1>
       <div class="messages success" ng-show="messages">{{messages}}</div>
       <form action="" role="form" class="form-horizontal signup-form" ng-submit="signup()" novalidate>
         <!--<img src="images/partners/locked.png" alt="" align="left">-->
         <div ng-class="{'has-error': errors.name}" class="form-group">
-          <label for="login">Name (login):</label>
+          <label for="login" translate="Name (login)">Name (login):</label>
           <input ng-input-validator error-message="errors.name" error-placement="left" id="login" name="login" type="text" ng-model="form.name" ng-focus="errors.name=null" ng-click="errors.name=null" class="form-control" ng-disabled="preload"/>
         </div>
         <div ng-class="{'has-error': errors.password}" class="form-group">
-          <label for="password">Password:</label>
+          <label for="password" translate="Password">Password:</label>
           <input ng-input-validator error-message="errors.password" error-placement="left" id="password" name="password" type="password" ng-model="form.password" ng-focus="errors.password=null" ng-click="errors.password=null" class="form-control" ng-disabled="preload"/>
         </div>
         <div ng-class="{'has-error': errors.passwordConfirmation}" class="form-group">
-          <label for="passwordConfirmation">Confirm password:</label>
+          <label for="passwordConfirmation" translate="Confirm password">Confirm password:</label>
           <input ng-input-validator error-message="errors.passwordConfirmation" error-placement="left" id="passwordConfirmation" name="passwordConfirmation" type="password" ng-model="form.passwordConfirmation"
                  class="form-control" ng-focus="errors.passwordConfirmation=null" ng-click="errors.passwordConfirmation=null" ng-disabled="preload"/>
         </div>
         <div ng-class="{'has-error': errors.email}" class="form-group">
-          <label for="email">Email:</label>
+          <label for="email" translate="Email">Email:</label>
           <input id="email" ng-input-validator error-message="errors.email" error-placement="left" name="email" type="email" ng-model="form.email" ng-focus="errors.email=null" class="form-control" ng-disabled="preload"/>
         </div>
         <div class="form-group">
           <label>
-            <input type="checkbox" name="termsCheckbox" ng-model="termsCheckbox" ng-input-validator error-message="errors.terms" ng-change="termsChange()" /> <a ui-sref="terms">Terms & Conditions</a>
+            <input type="checkbox" name="termsCheckbox" ng-model="termsCheckbox" ng-input-validator error-message="errors.terms" ng-change="termsChange()" /> <a ui-sref="terms" translate="Terms & Conditions">Terms & Conditions</a>
           </label>
         </div>
         <div class="form-group">

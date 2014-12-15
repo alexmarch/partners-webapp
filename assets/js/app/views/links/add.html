@@ -2,20 +2,20 @@
   <div class="row">
     <div class="col-lg-12 col-md-12">
       <div class="container-fluid form-groups-wrapper">
-        <h1 class="caption"><i class="fa fa-table"></i> Links generator</h1>
+        <h1 class="caption"><i class="fa fa-table"></i> <span translate="Links generator">Links generator</span></h1>
 
         <div class="content content-inverse">
           <div class="row">
             <form novalidate="">
               <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                  <label for="program">Select program:</label>
+                  <label for="program" translate="Select program">Select program:</label>
                   <select class="form-control" name="program" id="program" ng-model="currentProgramId" ng-change="changeProgram()">
                     <option ng-repeat="program in programs" value="{{program.programID}}">{{program.name}}</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="program">Select site:</label>
+                  <label for="program" translate="Select site">Select site:</label>
                   <select class="form-control" name="site" id="site" ng-model="domainName" ng-change="changeDomain()">
                     <option ng-repeat="site in sites" value="{{site.domainName}}" ng-selected="$index == 0">
                       {{site.domainName}}
@@ -23,33 +23,33 @@
                   </select>
                 </div>
                 <div class="form-group radio-group">
-                  <p>Link url:</p>
+                  <p translate="Link url">Link url:</p>
                   <label>
                     <input type="radio" value="index.php" ng-model="page" name="linkUrl" checked ng-click="changeAtherPage()"/>
-                    Home page
+                    <span translate="Home page">Home page</span>
                   </label>
                   <label>
                     <!-- fix#2 -->
                     <input type="radio" ng-model="regPageActive" value="true"  name="linkUrl" ng-click="regPageRadioChange()"/>
-                    Registration page
+                    <span translate="Registration page">Registration page</span>
                   </label>
                   <label>
                     <input type="radio" value="freechat.php" ng-model="page"  name="linkUrl" ng-click="changeAtherPage()"/>
-                    Free chat page
+                    <span translate="Free chat page">Free chat page</span>
                   </label>
                   <label>
                     <input type="radio" value="model/" name="linkUrl" ng-model="page" ng-click="changeAtherPage()"/>
-                    Model chat page
+                    <span translate="Model chat page">Model chat page</span>
                   </label>
                   <label ng-show="page === 'model/'">
-                    Room name:
+                    <span translate="Room name">Room name:</span>
                     <input type="text" ng-model="roomName" name="roomName" ng-value="nickname" />
                   </label>
                 </div>
               </div>
               <div class="col-lg-6 col-md-6">
                 <div class="form-group">
-                    <label for="program">Select campaign:</label>
+                    <label for="program" translate="Select campaign">Select campaign:</label>
                       <select class="form-control" name="campaign" id="campaign" ng-model="campaignID">
                         <option ng-repeat="campaign in campaigns.campaigns" value="{{campaign.id}}">{{campaign.name}}</option>
                       </select>
@@ -58,15 +58,15 @@
                   <label ng-i18next="Open_a_link_in"></label>
                   <label>
                     <input type="radio" value="_top" ng-model="target"/>
-                    The current window
+                    <span translate="The current window">The current window</span>
                   </label>
                   <label>
                     <input type="radio" value="_blank" ng-model="target"/>
-                    The new window
+                    <span translate="The new window">The new window</span>
                   </label>
                 </div>
                 <div class="form-group radio-group">
-                  <label>Attribute (onmouseover):</label>
+                  <label translate="Attribute (onmouseover)">Attribute (onmouseover):</label>
                   <label>
                     Yes
                     <input type="radio" value="1" ng-model="mouseOverState"/>
@@ -86,7 +86,7 @@
               </div>
             </div>
             <div class="col-lg-2 col-md-2">
-              <button class="btn btn-primary" style="padding: 20px" ng-click="openGeneratedTag()">Generate html</button>
+              <button class="btn btn-primary" style="padding: 20px" ng-click="openGeneratedTag()" translate="Generate html">Generate html</button>
             </div>
             <script type="text/ng-template" id="htmlLinkModal.html">
 

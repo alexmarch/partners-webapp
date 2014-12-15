@@ -8,51 +8,51 @@
       <div class="navbar-collapse collapse" id="mainmenu">
         <ul class="nav navbar-nav navbar-right">
           <li ng-hide="user.id" ng-class="{active: $state.includes('home') }">
-            <a ui-sref="home" translate="HOME"><span class="fa fa-home"></span> Home</a>
+            <a ui-sref="home"><span class="fa fa-home"></span><span translate="Home"> Home</span></a>
           </li>
           <li ng-show="user.id" ng-class="{active: $state.includes('dashboard')}">
-            <a ui-sref="dashboard"><span class="fa fa-dashboard"></span> Dashboard</a>
+            <a ui-sref="dashboard"><span class="fa fa-dashboard"></span><span translate="Dashboard"> Dashboard</span></a>
           </li>
           <li ng-show="user.id" ng-class="{active: $state.includes('statistic')}">
-            <a href ui-sref="statistic"><i class="fa fa-bar-chart"></i> Statistic</a>
+            <a href ui-sref="statistic"><i class="fa fa-bar-chart"></i><span translate="Statistic"> Statistic</span></a>
           </li>
           <li ng-hide="user.id" ng-class="{active: $state.includes('about')}">
-            <a href="#">About</a>
+            <a href="#" translate="About">About</a>
           </li>
           <li ng-hide="user.id" ng-class="{active: $state.includes('promo')}">
-            <a href="#">Promo</a>
+            <a href="#" translate="Promo">Promo</a>
           </li>
           <li ng-show="user.id" class="dropdown">
             <a href class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa  fa-wrench"></i> Promo tools<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <!--<li><a href="#">Popunder</a></li>-->
-                <li><a ui-sref="popup">PopUp</a></li>
-                <li><a ui-sref="links">Links</a></li>
-                <li><a ui-sref="banners_list">Banners</a></li>
+                <li><a ui-sref="popup" translate="PopUp">PopUp</a></li>
+                <li><a ui-sref="links" translate="Links">Links</a></li>
+                <li><a ui-sref="banners_list" translate="Banners">Banners</a></li>
               </ul>
           </li>
           <li ng-show="user.id" ng-class="{active: $state.includes('profile')}" class="dropdown">
             <a href class="dropdown-toggle" data-toggle="dropdown">
-              <spam class="fa fa-user"></spam> My Profile <span class="caret"></span>
+              <spam class="fa fa-user"></spam> <span translate="My Profile">My Profile</span> <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-              <li><a ui-sref="payment">Payment</a></li>
-              <li><a ui-sref="campaign">Campaigns</a></li>
-              <li><a ui-sref="settings">Settings</a></li>
+              <li><a ui-sref="payment" translate="Payment">Payment</a></li>
+              <li><a ui-sref="campaign" translate="Campaigns">Campaigns</a></li>
+              <li><a ui-sref="settings" translate="Settings">Settings</a></li>
             </ul>
           </li>
           <li ng-class="{active: $state.includes('help')}">
-            <a href ui-sref="help">Support</a>
+            <a href ui-sref="help" translate="Support">Support</a>
           </li>
           <li ng-show="user.id">
-            <button class="btn btn-info navbar-btn" ng-click="logout()"><span class="fa fa-sign-out"></span> Sign out</button>
+            <button class="btn btn-info navbar-btn" ng-click="logout()"><span class="fa fa-sign-out"></span> <span translate="Sign out">Sign out</span></button>
           </li>
           <li ng-hide="user.id">
-            <button ui-sref="signin" class="btn btn-primary navbar-btn"><span class="fa fa-lock"></span> Sign In</button>
+            <button ui-sref="signin" class="btn btn-primary navbar-btn"><span class="fa fa-lock"></span> <span translate="Sign In">Sign In</span></button>
           </li>
           <li ng-hide="user.id">
-            <button ui-sref="signup" class="btn btn-info  navbar-btn"><span class="fa fa-pencil"></span> Sign Up</button>
+            <button ui-sref="signup" class="btn btn-info  navbar-btn"><span class="fa fa-pencil"></span> <span translate="Sign Up"> Sign Up</span></button>
           </li>
         </ul>
       </div>
