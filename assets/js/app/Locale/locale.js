@@ -7,9 +7,10 @@ angular.module('app.locale').directive('appLocale', ['$translate', function($tra
     strict: 'AE',
     templateUrl: "js/app/Locale/locale.html",
     scope: {
-      locales: "@locales"
+      applocales: "@locales"
     },
     link: function($scope, element, attr) {
+      console.log($scope.applocales);
       $scope.toggleLanguage = function(lang) {
         $translate.use(lang);
       }
