@@ -93,5 +93,5 @@ HtmlModalController.prototype = {
 
 angular.module('partnerWebApp').controller('LinksController', LinksController);
 
-//angular.module('partnerWebApp')
-//    .controller('HtmlModalController', HtmlModalController);
+angular.module('partnerWebApp')
+    .controller('HtmlModalController', HtmlModalController);
