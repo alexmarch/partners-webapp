@@ -8,7 +8,7 @@ angular.module('app.locale').directive('appLocale', ['$translate', function ($tr
     templateUrl: "js/app/Locale/locale.html",
     scope: {
       locales: "=",
-      options: "@"
+      options: "="
     },
     link: function ($scope, element, attr) {
       $scope.currentLang = $translate.use();
@@ -20,7 +20,7 @@ angular.module('app.locale').directive('appLocale', ['$translate', function ($tr
 
           $scope.showIcons = options.hasOwnProperty('showIcons');
           $scope.iconsBasePath = options.iconsBasePath;
-
+          console.log($scope.options);
         }
         if (options.hasOwnProperty('icons')) {
           $scope.icons = options.icons;
