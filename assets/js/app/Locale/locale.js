@@ -12,7 +12,7 @@ angular.module('app.locale').directive('appLocale', ['$translate', function ($tr
     },
     link: function ($scope, element, attr) {
       $scope.currentLang = $translate.use();
-
+      var options = $scope.options;
       if (angular.isObject(options)) {
         if (options.hasOwnProperty('showIcons') &&
           options.hasOwnProperty('showIcons') == true &&
