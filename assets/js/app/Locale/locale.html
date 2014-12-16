@@ -5,8 +5,10 @@
         </a>
         <ul class="dropdown-menu" role="menu">
           <li ng-repeat="locale in locales">
-              <img src="{{ iconsBasePath }}/icons/16/{{ icons ? icons[locale] : locale | uppercase }}.png" ng-show="showIcons" alt=""/>
-              <a href ng-click="toggleLanguage(locale)">{{ locale }}</a>
+              <a href ng-click="toggleLanguage(locale)">
+                  <img src="{{ iconsBasePath }}/icons/16/{{ icons && icons[locale] ? icons[locale] : locale | uppercase }}.png" ng-show="showIcons" alt=""/>
+                  {{ locale }}
+              </a>
           </li>
         </ul>
     </li>
