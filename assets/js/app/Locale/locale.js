@@ -13,7 +13,7 @@ angular.module('app.locale').directive('appLocale', ['$translate', function($tra
       $scope.currentLang = $translate.use();
 
       $scope.toggleLanguage = function(lang) {
-        $translate.use(lang);
+        $scope.currentLang = $translate.use(lang);
       }
     }
   }
