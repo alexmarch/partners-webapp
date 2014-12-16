@@ -11,7 +11,6 @@ angular.module('app.locale').directive('appLocale', ['$translate', function($tra
     },
     link: function($scope, element, attr) {
       $scope.toggleLanguage = function(lang) {
-        console.log('use lang:', lang);
         $translate.use(lang);
       }
     }
